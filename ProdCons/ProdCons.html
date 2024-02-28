@@ -245,21 +245,42 @@ div.imagedesc{
 
  
 <div class="remark">
-Copy here the EXACT text fiven by the customer.
+	<p>Costruire un sistema software distribuito costituio da <code class="docutils literal notranslate"><span class="pre">N</span></code> (<code class="docutils literal notranslate"><span class="pre">N&gt;=1</span></code>) Produttori che
+	inviano informazione a  <code class="docutils literal notranslate"><span class="pre">1</span></code> Consumatore, il quale deve elaborare tale informazione.</p>
+	<p>La dislocazione dei componenti sui nodi di elaborazione può essere:</p>
+	<ul class="simple">
+	<li><p><span class="brown">OneNode</span>: tutti i componenti operano nello stesso nodo;</p></li>
+	<li><p><span class="brown">TwoNodes</span>: gli <code class="docutils literal notranslate"><span class="pre">N</span></code> <em>Produttori</em> operano in uno stesso nodo, mentre il <em>Consumatore</em> opera in un diverso nodo;</p></li>
+	<li><p><span class="brown">ManyNodes</span>: il <em>Consumatore</em> opera in suo proprio nodo, mentre i <em>Produttori</em> operano su <code class="docutils literal notranslate"><span class="pre">K</span></code>  nodi diversi (<code class="docutils literal notranslate"><span class="pre">1&lt;K&lt;=N</span></code>).</p></li>
+	</ul>
+	</section>
 </div>
 
  
 
 <h2>Requirement analysis</h2>
- 
-
+<div class="remark">
+	Viene chiesto di costruire un sistema distribuito: quindi produttori e consumatore sono entità distinte ed autonome.<br>
+	Vengono proposti 3 diversi modi per organizzare le entità in uno o piu nodi<br>
+	Nessusa specifica sul modo con cui avviene la cuminicazione<br>
+	
 </div>
 
 <h2>Problem analysis</h2>
- 
+<div class="remark">
+	Ci sono piu scelte sia per la comunicazione che per la distribuzione dei componenti.<br>
+	Bisogna anche capire se comunicare in modo sincrono o asincrono.<br>
+	
+	Il consumatore è unico e i produttori sono tanti:<br>
+		<li>il <em>Consumatore</em>  deve essere un entità che ciclicamente si blocca per ricevere richieste per poi elaborarle. per questo motivo la cuminicazione deve essere sincrona</li>
+		<li>i <em>Produttori</em> devono solamente mandare informazioni</li>
+</div>
 
 <h2>Test plans</h2> 
-
+<div class="remark">
+	per il testing si puo far generare e mandare le informazioni dagli N Produttori. <br>
+	Quindi controllare se il Consumatore riesce a ricevere e elaborare tutto.
+</div>
 
 <h2>Project</h2> 
  
@@ -288,7 +309,7 @@ Copy here the EXACT text fiven by the customer.
 
 <div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
     By Marko P'yeshchyk, mat: 0001103132, email: marko.pyeshchyk@studio.unibo.it, 
-<img src="./img/marko.jpg" alt="mbot" width="15%" height="15%">
+<img src="../img/marko.jpg" alt="mbot" width="15%" height="15%">
 GIT repo: <a href="https://github.com/Marko-Pyeshchyk/ISS_24.git">https://github.com/Marko-Pyeshchyk/ISS_24.git</a>
 </div>
 </body>
