@@ -1,0 +1,196 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 132120576 bytes for Failed to commit area from 0x0000000082000000 to 0x0000000089e00000 of length 132120576.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/os/windows/os_windows.cpp:3283), pid=11852, tid=10416
+#
+# JRE version:  (11.0.17+10) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (11.0.17+10-LTS-269, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=windows-1252 -Duser.country=IT -Duser.language=it -Duser.variant main.ServiceWithInteraction
+
+Host: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz, 8 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Thu Feb 29 17:09:07 2024 ora solare Europa occidentale elapsed time: 0.026619 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000234a2b35000):  JavaThread "Unknown thread" [_thread_in_vm, id=10416, stack(0x0000003f74300000,0x0000003f74400000)]
+
+Stack: [0x0000003f74300000,0x0000003f74400000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x62b5da]
+V  [jvm.dll+0x7653df]
+V  [jvm.dll+0x766a89]
+V  [jvm.dll+0x767113]
+V  [jvm.dll+0x23dd28]
+V  [jvm.dll+0x62896a]
+V  [jvm.dll+0x61d625]
+V  [jvm.dll+0x2f2d3c]
+V  [jvm.dll+0x2f2bc2]
+V  [jvm.dll+0x2f78e6]
+V  [jvm.dll+0x33a2df]
+V  [jvm.dll+0x339d10]
+V  [jvm.dll+0x2d0368]
+V  [jvm.dll+0x2d14d6]
+V  [jvm.dll+0x73f9a7]
+V  [jvm.dll+0x74123f]
+V  [jvm.dll+0x347039]
+V  [jvm.dll+0x725280]
+V  [jvm.dll+0x3b5c1f]
+V  [jvm.dll+0x3b7d31]
+C  [jli.dll+0x5207]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17344]
+C  [ntdll.dll+0x526b1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00000234a096a640, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x00000234a2b4a000 GCTaskThread "GC Thread#0" [stack: 0x0000003f74400000,0x0000003f74500000] [id=11036]
+  0x00000234a2b7b000 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000003f74500000,0x0000003f74600000] [id=10308]
+  0x00000234a2b7d000 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000003f74600000,0x0000003f74700000] [id=14788]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff8da24f5f7]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000234a2b316e0] Heap_lock - owner thread: 0x00000234a2b35000
+
+Heap address: 0x0000000082000000, size: 2016 MB, Compressed Oops mode: Non-zero based: 0x0000000082000000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff621840000 - 0x00007ff62184f000 	C:\Program Files\Java\jdk-11.0.17\bin\java.exe
+0x00007ff918fb0000 - 0x00007ff9191a8000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff917500000 - 0x00007ff9175bd000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff9168b0000 - 0x00007ff916ba6000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff916dd0000 - 0x00007ff916ed0000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff906f10000 - 0x00007ff906f25000 	C:\Program Files\Java\jdk-11.0.17\bin\VCRUNTIME140.dll
+0x00007ff90e7b0000 - 0x00007ff90e7c8000 	C:\Program Files\Java\jdk-11.0.17\bin\jli.dll
+0x00007ff918d80000 - 0x00007ff918e33000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff918210000 - 0x00007ff9182ae000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff9173e0000 - 0x00007ff91747f000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff918e40000 - 0x00007ff918f66000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff9166e0000 - 0x00007ff916707000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ff918070000 - 0x00007ff91820e000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff916bb0000 - 0x00007ff916bd2000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff9039e0000 - 0x00007ff903c7a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5\COMCTL32.dll
+0x00007ff9179e0000 - 0x00007ff917a0b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff916ed0000 - 0x00007ff916fe7000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff916810000 - 0x00007ff9168ad000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff90f560000 - 0x00007ff90f56a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff918bc0000 - 0x00007ff918bf2000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff8ecd20000 - 0x00007ff8ecdbb000 	C:\Program Files\Java\jdk-11.0.17\bin\msvcp140.dll
+0x00007ff8d9f70000 - 0x00007ff8daa8a000 	C:\Program Files\Java\jdk-11.0.17\bin\server\jvm.dll
+0x00007ff918bb0000 - 0x00007ff918bb8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff8ff8a0000 - 0x00007ff8ff8c7000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff911b00000 - 0x00007ff911b09000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff918c00000 - 0x00007ff918c6b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff914e70000 - 0x00007ff914e82000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff910f60000 - 0x00007ff910f70000 	C:\Program Files\Java\jdk-11.0.17\bin\verify.dll
+0x00007ff914360000 - 0x00007ff914544000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff8fd360000 - 0x00007ff8fd394000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff916be0000 - 0x00007ff916c62000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff9067c0000 - 0x00007ff9067e8000 	C:\Program Files\Java\jdk-11.0.17\bin\java.dll
+0x00007ff9108f0000 - 0x00007ff9108fa000 	C:\Program Files\Java\jdk-11.0.17\bin\jimage.dll
+0x00007ff906a30000 - 0x00007ff906a46000 	C:\Program Files\Java\jdk-11.0.17\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-11.0.17\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5;C:\Program Files\Java\jdk-11.0.17\bin\server
+
+VM Arguments:
+jvm_args: -Dfile.encoding=windows-1252 -Duser.country=IT -Duser.language=it -Duser.variant 
+java_command: main.ServiceWithInteraction
+java_class_path (initial): C:\Users\marko\Desktop\ISS2024\issLab24\project0\build\classes\java\main;C:\Users\marko\Desktop\ISS2024\issLab24\project0\build\resources\main;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.eclipse.paho\org.eclipse.paho.client.mqttv3\1.2.5\1546cfc794449c39ad569853843a930104fdc297\org.eclipse.paho.client.mqttv3-1.2.5.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.json\json\20220320\6df2c050972619466f6dcef7654ef9bcc01dfd0\json-20220320.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\com.googlecode.json-simple\json-simple\1.1.1\c9ad4a0850ab676c5c64461a05ca524cdfff59f1\json-simple-1.1.1.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.eclipse.californium\californium-proxy2\3.5.0\75d72a499b522210a20e2343ab491b63e315aa3a\californium-proxy2-3.5.0.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.eclipse.californium\californium-core\3.5.0\4838d526413a405bf68afcc867e82e38bf1dba3d\californium-core-3.5.0.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient\4.5.13\e5f6cae5ca7ecaac1ec2827a9e2d65ae2869cada\httpclient-4.5.13.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\commons-io\commons-io\2.11.0\a2503f302b11ebde7ebc3df41daebe0e4eea3689\commons-io-2.11.0.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\javax.websocket\javax.websocket-api\1.1\eeeb68631711256418dfbb47b11c731b6c8f6235\javax.websocket-api-1.1.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.glassfish.tyrus.bundles\tyrus-standalone-client\1.9\cf9e6cdbd6ad2a72bc54c0823c0ac31c76df4b9e\tyrus-standalone-client-1.9.jar;C:\Users\marko\Desktop\ISS2024\issLab24\unibolibs\2p301.jar;C:\Users\marko\Desktop\ISS2024\issLab24\unibolibs\unibo.basicomm23-1.0.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\junit\junit\4.10\e4f1766ce7404a08f45d859fb9c226fc9e41a861\junit-4.10.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.eclipse.californium\element-connector\3.5.0\9f5d20e6cd39567f5e7f81c8f3
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 132120576                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2113929216                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-11.0.17
+CLASSPATH=C:\Users\marko\Desktop\ISS2024\issLab24\project0\\gradle\wrapper\gradle-wrapper.jar
+PATH=C:\Program Files\Java\jdk-11.0.17\bin;C:\Gradle\gradle-8.6\bin;C:\Program Files\Python310\Scripts\;C:\Program Files\Python310\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\System32\OpenSSH\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\marko\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\Git LFS;C:\Users\marko\AppData\Roaming\Python\Python310\Scripts;;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\nodejs\;C:\Users\marko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\Users\marko\Desktop\antlr;C:\Users\marko\AppData\Local\JetBrains\IntelliJ IDEA Community Edition 2022.3.2\bin;C:\Users\marko\AppData\Roaming\npm
+USERNAME=marko
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Hyper-V role detected
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 10 microcode 0xb4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
+
+Memory: 4k page, system-wide physical 8058M (561M free)
+TotalPageFile size 8058M (AvailPageFile size 27M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 60M, peak: 186M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (11.0.17+10-LTS-269) for windows-amd64 JRE (11.0.17+10-LTS-269), built on Sep 13 2022 19:26:37 by "mach5one" with MS VC++ 15.9 (VS2017)
+
+END.
