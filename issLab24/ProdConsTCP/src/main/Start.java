@@ -12,6 +12,7 @@ public class Start{
 		Producer p = new Producer();
 		p.start();
 		
+		System.out.println("END");
 	}
 
 }
