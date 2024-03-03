@@ -56,11 +56,11 @@ eclipse {
 }
 
 application {
-       // mainClass = 'main.HelloWorld'
+       mainClass = 'main.HelloWorld'
        // mainClass = 'main.ServiceCallerTCPNaive'
        // mainClass = 'main.ServiceCallerCoapNaive'
        // mainClass = 'main.ServiceCallerInteraction'
-       mainClass = 'main.ServiceWithInteraction'
+       // mainClass = 'main.ServiceWithInteraction'
 }
 
 jar {
