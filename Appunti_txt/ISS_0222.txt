@@ -1,0 +1,60 @@
+ISS_2202
+
+
+copiare i plugins nei dropins di eclipse
+	help - installation details- plugins	ordina per provider, vedi unibo
+dobbiamo usare un servizio remoto
+
+QAK ha una software factory, sfrutta eclipse per estenderlo e fare il linguaggio nostro
+
+C:\Users\marko\Desktop\issLab24\iss24Material\html\_static\code
+
+docker indispensabile per ISS è una maniera light per fare macchine virtuali light
+	docker-compose abbatte i costi
+
+
+docker ps -a
+	indica i container attivi
+
+cosa serve per usare il servizio del distributore:
+	scrivere un programma usando i servizi REMOTI che ci offre Natali:
+		dove si trova, indirizzo? con che metodo di comunicazione? nome del servizio e firma?
+se risponde (localhost o IP porta 8088) allora vuol dire che cè un web server che risponde
+curl http://localhost:8088
+curl -H "Content_Type: application/json" -X GET http://localhost:8088/
+
+una pagina viene aggiornata tutta da capo oppure dinamicamente, un solo pezzo => pagine DINAMICHE 
+comunicazione non piu HTTP ma web socket: connessioni dirette point to point
+	il server invia una stringa di risposta che viene gestita da una funzione JS che è stata scritta dentro il browser
+quindi una domanda è il servizio usa HTTP o web-socket? HTTP per aprire la prima pagina e web-socket per aggiornare la pagina con SEND ad esempio
+	se apri due pagine localhost:8088 e usi SEND su una si aggiorna anche l'altra PERCHE il server risponde a tutti quelli attaccati alla socket
+
+HTTP viene usato per human-machine 	per vedere pagina HTML
+web-socket usato per machine-machine	per scambiare messaggi
+
+al centro attore che incapsusa un oggetto
+a sinnistra un webserver che si occupa di gestire le comunicazioni (sulla porta 8088)
+quando clicchi SEND arriva una richiesta al web server, questo invia la richiesta nella coda dell'attore (richiesta girata alla 8011)
+	(in teoria posso comunicare direttamente con la 8011 con messaggi via TCP)
+l'attore elabora il messaggio, il web server NON FA LOGICA APPLICATIVA
+contesto e attore: attori vivono in un contesto sempre, dove ci sono 2 server: uno TCP e uno CoAP 
+	
+domande da farsi soluzione:
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/html/QakService24Usage.html#uso-del-servizio-servicemath
+API = intermediario tra servizio e client
+essendo una API, usa il protocollo che vuoi tra i 5 ma Indipendentemente dal protocollo, la struttura dei messaggi che ogni client deve inviare è fissata
+
+abbiamo 5 modi per mandare richiesta e ricevere risporta ma è superfluo, alla fine a me basta manda(msg) e ricevi(msg). lo vedremo...
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/html/QakService24Usage.html#il-servizio-usato-via-tcp
+messaggio da mandare e relativa risposta che devo ricevere (dovrebbe esserci un javajar al posto di servicemath)
+
+/*9*/ sendUsingTcp( req  );
+/*10*/receiveAnswer( );
+è asincrona per via del punto 9
+se fosse sincrona sarebbe risposta = sendUs...
+
+compito: lanciare il servizione diddio
+project properties -> porject natures -> aggiungere java
+
+java compiler deve essere 1.8 e jdk 11

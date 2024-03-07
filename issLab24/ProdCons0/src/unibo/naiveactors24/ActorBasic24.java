@@ -21,7 +21,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 public abstract class ActorBasic24 implements IActor24 {
     protected BlockingQueue<IApplMessage> msgQueue     = new LinkedBlockingDeque<>();
     protected HashMap<String, IApplMessage> requestMap = new HashMap<String, IApplMessage>();
-     
+     // observer list
     protected String name="dummy";
     protected boolean autostart = false;
     protected ActorContext24 ctx;
@@ -29,7 +29,7 @@ public abstract class ActorBasic24 implements IActor24 {
     
 
     public ActorBasic24(String name, ActorContext24 ctx ){ 
-        this.name    = name;
+        this.name    = name; // univoco
         this.ctx     = ctx;
         ctx.addActor(this);
         autoStartMsg = CommUtils.buildDispatch(name, "cmd", "start", name);

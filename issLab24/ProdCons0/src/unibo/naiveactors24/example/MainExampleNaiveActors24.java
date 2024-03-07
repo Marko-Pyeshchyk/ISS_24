@@ -26,7 +26,7 @@ public class MainExampleNaiveActors24 {
         a1.activateAndStart();
         a2.activateAndStart();
         
-        alienCaller();
+        // alienCaller();
     }
     public static void main(String[] args ){
         new MainExampleNaiveActors24().configureTheSystem();

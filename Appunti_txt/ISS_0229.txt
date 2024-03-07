@@ -1,0 +1,19 @@
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/unibo.basicomm23.html?highlight=interaction
+interaction fornisce concetti per abbattere costi di sviluppoS
+
+cosa e come
+interaction fa in modo che chi sviluppa la roba a livello basso anche con UDP a 2 vie
+interaction dice COSA fare. poi COME è fatto me lo fa un'altro
+
+analisi del problema: mettere in luce le problematiche principali, non riformulazione dei requisiti
+
+sprint0 è analizzare
+sprint1 è il dolcetto ovvero il primo programmino con scenario TCP
+
+compito: prod cons PyeshchykMarko_afterAnalysis
+uno o piu produttori connessi via TCP realizzare prototipoù
+analisi finisce con architettura logica del sistema Produttore è... Cons è... interconnessione avviente con TCP
+
+fare il progetto che gira
+nel proggettazione passa al codice dei pezzi importanti
+anche a parole

@@ -34,13 +34,14 @@ private static Interaction connSupport;
 		CommUtils.outmagenta("activateConsumer");
 		new MainEmablersConsumerOnly().configureTheSystem();
 		connSupport = ConnectionFactory.createClientSupport(
-				          ProtocolType.tcp, "localhost", "8888");
+				          ProtocolType.tcp, "130.136.113.239", "8888");
 	}
 	@After
 	public void down() {
 		CommUtils.outmagenta("end of  a test "); 
 	}
 	
+	/*
 	@Test
 	public void testRequest() {
 		 CommUtils.outmagenta("testRequest ======================================= ");
@@ -77,7 +78,7 @@ private static Interaction connSupport;
 		} catch (Exception e) {
 			fail("testRequest " + e.getMessage());
  		}
-	}
+	}*/
 
 	protected void readLogFile() throws IOException {	
 		String line;
@@ -93,5 +94,25 @@ private static Interaction connSupport;
 	      CommUtils.outblue( ""+m  );
 	      assertEquals(m.msgContent(), "distance(30)");	      
 	      myReader.close();
+	}
+	
+	@Test
+	public void testRequestAfterRequest() {
+		CommUtils.outmagenta("testRequestAfterRequest ======================================= ");
+		IApplMessage reqAync = CommUtils.buildRequest( "pyeshchyk_marko", "distance", "distance(50)", "consumer");
+		IApplMessage reqSync  = CommUtils.buildRequest( "pyeshchyk_marko", "distance", "distance(10)", "consumer");
+		try {
+			// richiesta Asincrona
+			connSupport.forward(reqAync);
+			// richiesta Sincrona
+			IApplMessage reply = connSupport.request(reqSync);
+			// risposta
+			CommUtils.outblue("reply="+reply);
+			String answer = reply.msgContent();
+			assertEquals(answer, "ack(distance(10))");
+			 
+		} catch (Exception e) {
+			fail("testRequestAfterRequest " + e.getMessage());
+ 		}
 	}
 }

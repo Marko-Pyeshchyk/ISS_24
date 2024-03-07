@@ -1,0 +1,48 @@
+oggi guardiamo una soluzione brutta dove per cambiare protocollo cambiamo codice ogni volta
+lo scopo in generale è rendersi conto che ci vuole un programma/codice protocoll indipendent
+
+un servizzio è osservabile
+	senza che io faccia nulla il servizzio mi manda informazioni
+voglio
+
+il progetto va bene se ha nelle proprieties le librerie aggiunte e in source la cartella src
+	
+window -> preferences -> Java -> installed JREs
+gradlew eclipse
+aprire il file qak
+gradlew run 
+	(con docker chiuso e RAM libera)
+poi il servizio è su localhost:8088
+
+ripasso
+8088 comunicazione http human-machine
+8011 machine-machine interaction
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/html/QakService24Usage.html#un-primo-client-tcp
+la 11 è cìbloccante
+
+
+restful sono connessioni HTTP "disciplinate"
+CoAP si appoggia su UDP quindi usare interazioni restful machine-machine anche per dispositivi non potenti come PC ma un rasberry
+vede il servizzio come risorsa		IP:porta/path 
+
+main.ServiceCallerInteraction
+serve per evitare di usare diversi protocolli
+
+selectAndSend
+indirizzo generico: host address e entry
+forward: fire and forget 
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/html/QakService24Usage.html#il-cosa-e-il-come
+primo passo dagli oggetti agli attori
+
+tutta questa lezione (astrazione) è utile nella fase di ANALISI E PROGETTAZIONE
+
+
+==========================================================================================
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/html/ProdConsSystem.html
+per giovedì analisi dei requisiti mandare PDF
+poche essenziali parole 
+uguale ma per l'analisi del problema
+piani di test

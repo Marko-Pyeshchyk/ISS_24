@@ -1,0 +1,49 @@
+---------------- note sulla consegna
+note compilazione in itinere: appuntarsi a parole cosa fa e perche le classi del mio progetto, giusto una riga
+in userdocs/html deve esserci il template.html
+dividere il codice in pacchetti
+
+autovalutazione qualitativa: F-A
+A tutto ok
+B manca qualcosa, motivare cosa e perche non è A (il progetto non è completo ad es.)
+C...
+
+
+---------------- ispezione naive codice
+implementazione naive: conoscendo solo java e TCP
+Consumatore = 	server 	socket
+Produttore = 		socket
+
+
+
+---------------- test plan
+user story:
+	come producer mando due messaggi al Consumer: il primo è una request con payload "50" alla quale mi aspetto una risposta payload "ack(50)", il secondo messaggio è un dispatch con payload "10" e mi aspetto di non ricevere una risposta.
+	
+	(nota: inviare risposta vuol dire che il componente (Consumer) è osservabile, mantre inviare un dispatch vuol dire che non è osservabile, da lato della console di Producer non "vedo" risposta)
+	strumento per osservare il dispatch è il file di log: ogni volta che il consumer riceve il messaggio scrive sul file.log
+per il testing lo strumento è JUnit
+
+
+sul server un componente che riceve messaggi da un Interaction e li passa al handler
+il handler riceve ed elabora il mesasggio
+	è attivo perchè su quella connessione il S puo ricevere piu di un messaggio
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/unibo.basicomm23.html#unibo-basicomm23-interfaces-iapplmsghandler
+il server è un Iapplmsghandler che ha elaborate(msg, connessine)
+	passare la connessione è utile per rispondere nel caso di richiesta
+IApplMessage reply = CommUtils.prepareReply( message, outMsg); rispetto a buildReply è un po piu automatico
+
+alieno:	programma che non sa niente del nostro mondo, si deve rapportare col nostro mondo per comunicare. uno che non conosce le "nostre" librerie
+	python è proprio un linguaggio di programmazione.
+	FARE programma che fa da Producer essendo alieno in Java.
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/ProdConsSystem.html#testplans-per-prodcons
+i test sono legati ai requisiti
+rendere l'applicazione osservabile da parte di una macchina
+1) user story
+2) test JUnit
+
+@Before viene chiamata prima di ogni test
+@After alla fine
+@BeforeClass una volta sola all'inizio

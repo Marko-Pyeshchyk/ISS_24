@@ -1,0 +1,47 @@
+request asincrona e poi sincrona mostrare il risultato del test
+lavorare in maniera incrementale: una richiesta all'inizio per vedere se funziona poi evolvo
+per sicurezza useremo solo richieste Asincrone
+ad esempio con fibonacci se uno manda fibonacci di 50 è brutt perche blocca tutti gli altri 
+	NON si puo lavorare in modo sincrono FIFO
+	soluzione: gestire le richieste con thread e la comunicazione Asincrona
+
+riguardo al Consumatore ricordo che in setup server si passa "this" perche così poi il server chiama il handler(this)
+un server è in ascolto, arrivano 30 richieste quindi ho 30 connessioni TCP, si crea un thread (per richiesta) con quella connessione come parametro e si passa un handler
+	30 thread che chiamano elaborate per ogni richiesta.
+	guardando elaborate c'è conn.forward, questa conn è uno dei 30 fili/thread.
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/ProdConsSystem.html#prodsconsenablers
+in sintesi. cool
+
+prossimo 
+disaccoppiare Consumatore e logging
+rendi Consumer observable e ogni volta che cambia di stato e notifica gli abserver che loggano
+se il Observer fallisce il Consumer puo in teoria andare avanti
+inoltre non voglio piu Client/Server e connessioni varie, ma solo Attori che comunicano a messaggi
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/ProdConsSystem.html#prodsconsenablers
+immagine:
+	azzurro = POJO
+	viola = Actor: rettangolo è la coda di ingresso, sono messaggi
+		attore è un entità attiva che puo inglobare POJO e non ha memeria comune con altri.
+		puo fare qualcosa di "spontaneo" o elaborare messaggi che arrivano.
+gli attori nascono per forza dentro un contesto
+ora dico che gli attori condividono i Server, essendo in un contesto hanno la capacitò di essere chiamati da alieni.
+per ora gli Attori comunicano solamente dentro il contesto.
+la classe ActorBasic24 realizza Attore base, poi c'è anche quello col contesto.
+
+l'attore puo usaretutti i metodi di comunicaizone
+Actor.forward( )
+send_message controlla il destinatario del messaggio e gli invia il msg
+gli Alieni comunicano con gli Attori	es. elabNonRequest di ContextMsgHandler
+	btw in elab request metto nella coda dell'attore trovo la connessione dove rispondere
+il conteto per definizione riceve informazioni dal mondo esterno
+
+in send reply metto la connessione che pero possono avere solo gli alieni, se quel campo è vuoto allora è la risposta ad un attore
+il sender parte con l'automessage a differenza del actor reciever che è il msg.dispatch
+
+ora il main che fa partire tutto:
+
+tecnica message driven, messaggi cge arrivano dagli altri attori o dal contesto per via di attori
+
+ora per notificare gli observer mandiamo messaggi di "update" sulla coda
