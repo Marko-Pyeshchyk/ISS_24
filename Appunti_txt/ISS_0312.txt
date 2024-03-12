@@ -1,0 +1,86 @@
+====================================================
+correzzione compiti
+====================================================
+ActorBasic24 specializzarla oppure no?
+ha senso fare che una classe NumeriComplessi chhe estende NumeriReali? NO, non ha senso dire che un complesso è utilizzabile come reale. ergo è meglio cambiare direttamente ActorBasic24. stiamo parlando di eriditarietà. i numeri reali sono complessi ma con vincolo su parte reale.
+
+una lista di observers, è la nuova proprietà. puo stare nell'Attore (o nel contesto), giustifica:
+	per ora il contesto è un abilitatore di comunicazione con l'esterno
+	gli attori possono comunicare tra di loro. quindi meglio una lista nell'ObservableObj
+
+gli observer si registrano nel main (è una forma di configurazione)
+
+morale giustificare le scelte nella fase del progetto, anche con poche frasi
+
+inoltre osservabilità parziale ha senso? ad esempio una galassia osservabile, quindi che emette informazioni e io le guardo TUTTE non è che mi dice solo massa o luce emessa.
+posso vedere che informazioni emete un Attore ma non posso sapere le sue proprietà interne.
+gli elettroni non sono palline, MA non sappiamo cosa è (forse l'elettrone esiste solo se qualcuno lo osserva, fisica quantistica). ok. faccio un esperimento e guardo i risultati=informazioni.
+
+se un entità emmette informazioni un problema è interpretarle. magari non ho i sensori boh. (noi sappiamo tipo tutto perche abbiamo le classi "se (non) lo costruisco (non) lo capisco" cit. Feynmann).
+
+====================================================
+QUK
+====================================================
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/QakActors24.html#qakactors24-introduzione
+Do not communicate by sharing memory …
+… instead, share memory by communicating.
+
+QAK
+Quasi Attori (+o- microservizi) in Kotlin (perche in Java 100 attori sono 100 thread ma in Kotlin 1 thread solo)
+unibo.quakactor23 è la libreria con ActorBasicBasic
+
+automa a stati finiti: macchina astratta, transizioni di stato attraverso IN esterno o transizione spontanea (empty transition)
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/QakActors24.html#qakactors24-introduzione
+esiste factory che conosce il metamodello che sta alla base dei nostri modelli
+metamodello = insieme di concetti/meccanismi. scritto in xtext
+noi siamo in High-level app code, facciamo un modello inviato alla factory e mi esce del codice.
+
+skip veloce finoa METAMODELLO
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/QakActors24.html#qakactors24-introduzione
+il sistema puo avere piu di 1 contesto
+attore è uguale
+contesto: actorMap ha tutti gli attori, proxyMap ha gli intermediari tra i contesti anche di macchine diverse (PC e raspberry). 
+
+
+====================================================
+Progetto base qak
+====================================================
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/QakActorsIntro24.html
+creare nuovo progetto fino al punto 9 (non il punto 7)
+aggiungere la natura Java = project -> properties -> add... -> Java
+dopo il passo 9 dare "yes"
+poi ti si apre il file e premi "CTRL+spazio", compare System
+	questo è perche è un editor guidato da sintassi
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/QakActors24.html#id2
+ogni specifica ha un nome che è un ID, poi alcune frasi opzionali (col ?) poi alcune opzionali ma da 0+ volte (col *)
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/_static/Qactork.xtext
+qui la sintassi di tutto, permette di esprimere le idee del metamodello Qak
+linguaggio  macchina: sono le istruzioni che capisce l'hardware (la CPU, leggiti il manuale e trovi le istruzioni). quindi per ogni CP il linguaccio puo essere diverso. 
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/Principi.html#comportamento
+qui trovi(Minsky machine) che ci vogliono solo 6 istruzioni elementari che bastano per gestire i registri. ci si puo scrivere qualsiasi programma.
+un linguaggio di programmazione di alto livello. lo spazio concettuale di Java contiene quello di Minsky. Java ha concetti/istruzioni piu complesse che fanno molto lavoro sporco al posto mio.
+pero ogni programma Java è mappabile ad istruzioni macchina. sia Java che Minsky fanno gli stessi programmi.
+nel manuale Java non c'è l'Attore come abbiamo fatto noi. quindi non c'è nel metamodello Java ma si puo implementare. (definire una libreria è simile, aumenta lo spazio concettuale ma non quello di Java , pernso quello del progetto)
+------ morale
+Qak fa la stessa cosa che ha fatto Java con la macchina di Minsky.
+
+noi che siamo progettisti facciamo METAmodelli/programmi.
+
+file:///C:/Users/marko/Desktop/issLab24/helloworldqak24/src/helloworld0.qak
+copiare il codice in helloworldqak24.qak, nota che quando salvi ti compare un botto di roba
+controlla il file build2024.gradle e i due file.pl
+
+cancellare il build.gradle e ridenominare build2024.gradle come build.gradle
+ora puoi fare:
+	gradlew eclipse
+	gradlew run
+
+[# CommUtils.outblue("Hello world again") #]
+è un comando Kotlin perche qak non è un linguaggio completo
+
+
+
