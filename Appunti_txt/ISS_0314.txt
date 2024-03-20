@@ -1,0 +1,24 @@
+da installare python module diagramas per runnare python Arch_hello...
+
+file.pl è la base di conoscenza del sistema
+
+POJO: è morto = qualcuno deve iniettare qualcosa per farlo "vivere", il main (Thread) fa vivere i POJO. se piu thread gli danno vita ci puo essere concorrenza (Pericoloso! se creo "Marko" con metodo readAge e writeAge e 2 thread diversi scrivono contemporaneamente...). POJO stateless (senza variabili interne) non ha questo problema. Syncronized è la soluzione nel caso stateful.
+
+Attore: (es. student) = è vivo (ogni a. ha un Thread=spirito/anima all'interno). una volta che nasce lui fa quello che gli pare e riceve anche messaggi. (come un pittore che dipinge tutto il giorno e ogni tanto va alla porta a controllare se ha posta). 1) accede alla coda dei messaggi 2) fa FIFO con i messaggi
+
+ActorFSM: in base allo stato legge i messaggi => leggo i messaggi SOLO quelli che mi interessano (non piu FIFO). funziona per INTERESSE/PIORITà.
+
+ora grazie alla notazione [# codice kotlin #] un attoreQAK puo fare tutto
+sintassi qak:
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/_static/Qactork.xtext
+azionidi un attore:
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/QakActors24.html?highlight=qak+syntax#azioni-di-un-attore
+3: se mi arriva "assunto" faccio festa altirmenti no
+4: publish-shub (es. prof pubblica su git e tutti gli iscritti vengono notificati)
+12: print
+
+prima di fare una app distribuita, per il primo prototipo è meglio lavorare sulla stessa macchina perche è piu semplice e testo solo la logica. poi posso provare su piu nodi
+
+worker manda dispatch al display e questo visualizza messaggio
+Dispatch info : info(N)
+messageDI: payload
