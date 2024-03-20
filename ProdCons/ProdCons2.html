@@ -206,7 +206,7 @@ div.imagedesc{
 
 
    
-<title>TemplateToFill</title></head>
+<title>ProdCons_PyeshchykMarko</title></head>
     
 <!--
 	<body onload="loadNav();">
@@ -260,13 +260,19 @@ div.imagedesc{
 
 <h2>Requirement analysis</h2>
 <div class="remark">
-	I requisiti non stabiliscono come l’informazione debba essere trasmessa e ricevuta<br>
-	
+	Viene chiesto di costruire un sistema distribuito: quindi produttori e consumatore sono entità distinte ed autonome.<br>
+	Vengono proposti 3 diversi modi per organizzare le entità in uno o piu nodi<br>
+	I requisiti non stabiliscono come l'informazione debba essere trasmessa e ricevuta<br>
 </div>
 
 <h2>Problem analysis</h2>
 <div class="remark">
-	scenari di comunicazione tra le entita<br>
+	Tra i vari scenari di comunicazione tra le entita è stato scelto (dal committente) quello dove il Consumer opera come un server e i Producer operano come client. <br>
+	Inoltre il consumatore è unico e i produttori sono tanti, perciò:<br>
+	<li>il <em>Consumatore</em>  deve essere un entità che ciclicamente si blocca per ricevere richieste per poi elaborarle</li>
+	<li>i <em>Produttori</em> devono conoscere il Consumatore e mandare informazioni; non essendoci altre specifiche questi possono terminare dopo aver mandato l'informazione</li>
+	Non è specificato che il Consumatore deve rispondere, ma mandare un ACK di risposta è positivo per la comunicazione tra le entità.
+	<!-- 	
 	produttori e consumatori sono indipendenti
 	i produttori emmettono informazioni senza vincoli di similitudine tra di loro
 	
@@ -277,22 +283,63 @@ div.imagedesc{
 	
 	informazione puo avvenire in molti modi possibili
 	un evento è diverso da forward/recieve/request, l'unica certezza è che l'informazione è prodotta nello stesso universo del consumatore
-
-	non è specificato ma ACK è un buon stumento da far usare al Consumatore
-	
+	-->
 </div>
 
 <h2>Test plans</h2> 
 <div class="remark">
-	
+	Per il testing realizzare un main dove:
+	<li>N Produttori possono generare informazioni e mandarle.</li>
+	<li>Controllare se il Consumatore riesce a ricevere e elaborare tutto.</li>
+	<li>Controllare se i Produttori ricevono l'ACK.</li>
 </div>
 
 <h2>Project</h2> 
- 
+Il Produttore comunica attraverso la Interaction con il Consumer e poi riceve l'ACK nella answer.
+ <pre>public class Producer extends Thread{
+	
+	public void run() {
+		ProtocolType protocol = ProtocolType.tcp;
+		...
+		Interaction conn = ConnectionFactory.createClientSupport(protocol, hostAddr, entry);
+		...
+		IApplMessage req = BasicMsgUtil.buildRequest(sender,msgid,msgcontent,destination);
+		
+		String answer = "";
+		try {
+			conn.forward(req);
+			answer = conn.receiveMsg();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		CommUtils.outblue("ack: "+answer);
+	}
+	
+}</pre>
+
+Il Consumatore ha una socket sulla stessa porta a cui si rivolgono i Produttori e accetta richieste, le elabora e rimanda un ACK.
+<pre></pre>
 </div>
 
 <h2>Testing</h2> 
- 
+ <pre>
+	public class Start{
+
+	public static void main(String[] args) {
+		CommUtils.outcyan("Starting Consumer");
+		Consumer cons = new Consumer();
+		cons.start();
+		CommUtils.outcyan("Starting Producers");
+		Producer p = new Producer();
+		p.start();
+		
+		// gestione chiusura thread
+		...
+	}
+
+}</pre>
 
 <h2>Deployment</h2> 
 
