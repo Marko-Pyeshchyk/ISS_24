@@ -1,0 +1,59 @@
+System helloworld0
+
+Dispatch info : info(N, S)
+Dispatch ack : ack(N)
+
+Context ctx0 ip [host="localhost" port=8000] 
+
+
+QActor consumer context ctx0{
+	
+	State s0 initial{
+		println("$name START") color red
+	}
+	Transition t0 whenMsg info -> handleInfo
+	
+	State handleInfo {
+		onMsg(info : info(N, S)){
+			println("$name received ${payloadArg(0)} from ${payloadArg(1)}") color red
+			forward producer1 -m ack : ack($payloadArg(0)) // non so come mandare il messaggio al sender quindi per testare rimane sempre producer1
+		}
+	}
+	Transition t0 whenMsg info -> handleInfo
+}
+
+
+
+QActor producer1 context ctx0{
+	
+	State s0 initial{
+		println("$name START") color blue
+		forward consumer -m info : info(10, producer1)
+	}
+	Transition t0 whenMsg ack -> handleAck
+	
+	State handleAck {
+		onMsg(ack : ack(N)){
+			println("$name received ack ${payloadArg(0)}") color blue
+		}
+	}
+}    
+
+
+
+QActor producer2 context ctx0{
+	
+	State s0 initial{
+		println("$name START") color magenta
+		forward consumer -m info : info(500, producer2)
+	}
+	Transition t0 whenMsg ack -> handleAck
+	
+	State handleAck {
+		onMsg(ack : ack(N)){
+			println("$name received ack ${payloadArg(0)}") color magenta
+		}
+	}
+}    
+
+

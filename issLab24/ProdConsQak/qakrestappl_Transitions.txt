@@ -1,0 +1,4 @@
+{"actor":"consumer", "msgType":"dispatch", "curstate":"s0", "nextstate":"handleInfo", "msgId":"info"}
+{"actor":"consumer", "msgType":"dispatch", "curstate":"handleInfo", "nextstate":"handleInfo", "msgId":"info"}
+{"actor":"producer1", "msgType":"dispatch", "curstate":"s0", "nextstate":"handleAck", "msgId":"ack"}
+{"actor":"producer2", "msgType":"dispatch", "curstate":"s0", "nextstate":"handleAck", "msgId":"ack"}
