@@ -21,31 +21,32 @@ class Display ( name: String, scope: CoroutineScope, isconfined: Boolean=false  
 	}
 	override fun getBody() : (ActorBasicFsm.() -> Unit){
 		//val interruptedStateTransitions = mutableListOf<Transition>()
+		 val d = DisplayObj.create()  
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
-						CommUtils.outblue("$name START")
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t00",targetState="handleInfo",cond=whenDispatch("info"))
+					 transition(edgeName="t00",targetState="handleout",cond=whenDispatch("out"))
 				}	 
-				state("handleInfo") { //this:State
+				state("handleout") { //this:State
 					action { //it:State
-						CommUtils.outcyan("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
-						 	   
-						if( checkMsgContent( Term.createTerm("info(N)"), Term.createTerm("info(N)"), 
+						if( checkMsgContent( Term.createTerm("out(TERM)"), Term.createTerm("out(TERM)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
-								CommUtils.outblue("$name ${payloadArg(0)}")
+								 val OutMsg = payloadArg(0)  
+								 d.write("$OutMsg")  
+								updateResourceRep( OutMsg  
+								)
 						}
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t01",targetState="handleInfo",cond=whenDispatch("info"))
+					 transition(edgeName="t01",targetState="handleout",cond=whenDispatch("out"))
 				}	 
 			}
 		}

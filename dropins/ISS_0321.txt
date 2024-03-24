@@ -1,0 +1,16 @@
+onMsg( distance : distance(D)){
+qui D è una var ma puo anche essre distance(37s)
+
+[# var Do = payloadArg(0) #]
+mi crea una var che dopo posso trovare come $Do
+
+
+se vogliamo fare il distribuito bisogna fare 2 contesti dove solo il Producers conoscono i consumatore
+
+updateResource [# "info(consumer,$currentMsg)" #]
+manda a tutti quelli registrati un messaggio
+
+salva consumer -> runConsumer
+uguale per il producer, altrimenti non funzoina
+
+per ogni update resource si attiva CoAP avvisando tutti i CoAP observer
