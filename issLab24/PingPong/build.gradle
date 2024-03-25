@@ -147,7 +147,7 @@ eclipse {
 
 application {
     //Define the main class for the application.
-    mainClass    = 'it.unibo.ctxproducer.MainCtxproducerKt'
+    mainClass    = 'it.unibo.ctx_pong.MainCtx_pongKt'
 }
  
  jar {
@@ -170,20 +170,27 @@ task dovesiamo {
 
 distributions {
     main {
-        distributionBaseName = 'prodcons24_producer'
+        distributionBaseName = 'pong'
         contents { 
-             from './prodcons24_producer.pl'
+             from './pong.pl'
              from './sysRules.pl'
              from './facadeConfig.json'
         }
     }
 } 
 
-task run0(type: JavaExec) {
+task runPing(type: JavaExec) {
     group = "Execution"
     description = "Run the main class with JavaExecTask"
     classpath = sourceSets.main.runtimeClasspath
-    main = 'it.unibo.ctxproducer.MainCtxproducerKt'
+    main = 'it.unibo.ctx_ping.MainCtx_pingKt'
+}
+
+task runPong(type: JavaExec) {
+    group = "Execution"
+    description = "Run the main class with JavaExecTask"
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'it.unibo.ctx_pong.MainCtx_pongKt'
 }
 
 /*

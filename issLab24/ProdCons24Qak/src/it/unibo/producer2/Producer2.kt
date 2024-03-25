@@ -38,6 +38,8 @@ class Producer2 ( name: String, scope: CoroutineScope, isconfined: Boolean=false
 					action { //it:State
 						CommUtils.outblue("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
 						 	   
+						delay(2000) 
+						 System.exit(0)  
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002

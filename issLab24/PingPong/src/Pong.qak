@@ -1,0 +1,40 @@
+System pong
+
+Request hit : hit(N)
+Dispatch miss : miss(N)
+Reply hit_resp : hit(N) for hit
+Reply miss_resp : miss(N) for hit
+
+Context ctx_pong ip [host="localhost" port=8001]
+
+
+QActor pong context ctx_pong {
+	State s0 initial{
+		println("Pong START") color red
+	}
+	Transition t0 whenRequest hit -> handlePing
+	
+	State handlePing{
+		onMsg( hit : hit(A)){
+			delay 1000
+			
+			if [# Math.random()*100+1 <= 90 #] {
+				replyTo hit with hit_resp : hit(a)
+				println("Pong") color red
+			} else {
+				println("YOU LOSE") color red
+				replyTo hit with miss_resp : miss(a)
+				[# System.exit(0) #]
+			}
+		}	
+	}
+	Transition t0 whenRequest hit -> handlePing
+				  whenMsg miss -> handleMiss
+				  
+	State handleMiss{
+		onMsg( miss : miss(N)){
+			println("YOU WIN") color red
+			[# System.exit(0) #]
+		}
+	}
+}

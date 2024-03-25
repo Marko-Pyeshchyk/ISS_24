@@ -24,39 +24,39 @@ class Consumer ( name: String, scope: CoroutineScope, isconfined: Boolean=false 
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
-						CommUtils.outblue("$name STARTS")
+						CommUtils.outgreen("$name STARTS")
+						delay(1000) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t00",targetState="handleDispatch",cond=whenDispatch("distance"))
-					transition(edgeName="t01",targetState="handleRequest",cond=whenRequest("distance"))
+					 transition(edgeName="t01",targetState="handleDispatch",cond=whenDispatch("distance"))
+					transition(edgeName="t02",targetState="handleRequest",cond=whenRequest("distance"))
 				}	 
 				state("handleDispatch") { //this:State
 					action { //it:State
-						CommUtils.outblue("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
+						CommUtils.outgreen("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
 						 	   
-						updateResourceRep( "short(consumer_dispatch)"  
+						updateResourceRep( "info(consumer,$currentMsg)"  
 						)
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t02",targetState="handleDispatch",cond=whenDispatch("distance"))
-					transition(edgeName="t03",targetState="handleRequest",cond=whenRequest("distance"))
+					 transition(edgeName="t03",targetState="handleDispatch",cond=whenDispatch("distance"))
+					transition(edgeName="t04",targetState="handleRequest",cond=whenRequest("distance"))
 				}	 
 				state("handleRequest") { //this:State
 					action { //it:State
-						CommUtils.outblue("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
+						CommUtils.outgreen("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
 						 	   
-						updateResourceRep( "short(consumer_request)"  
-						)
 						updateResourceRep( "info(consumer,$currentMsg)"  
 						)
 						if( checkMsgContent( Term.createTerm("distance(D)"), Term.createTerm("distance(D)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
+								 var D = payloadArg(0)  
 								answer("distance", "distanceack", "ack(${payloadArg(0)})"   )  
 						}
 						//genTimer( actor, state )
@@ -64,8 +64,8 @@ class Consumer ( name: String, scope: CoroutineScope, isconfined: Boolean=false 
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t04",targetState="handleDispatch",cond=whenDispatch("distance"))
-					transition(edgeName="t05",targetState="handleRequest",cond=whenRequest("distance"))
+					 transition(edgeName="t05",targetState="handleDispatch",cond=whenDispatch("distance"))
+					transition(edgeName="t06",targetState="handleRequest",cond=whenRequest("distance"))
 				}	 
 			}
 		}
