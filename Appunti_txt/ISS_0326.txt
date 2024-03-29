@@ -1,0 +1,72 @@
+sviluppo insieme al prof di PingPong24
+
+dalla programmazione agile scrum -> concetto di sprint
+ogni sprint raggiunge una parte dei requisiti  fino al completamento
+"divide et impera"/lavoro incrementale is the way
+in PingPong24 non andiamo a silìmulare direttamente tutto il GIOCO ma per primo lo scambio di informazionie tipo ping-pong
+
+----------------------- Requirement analysis -----------------------
+Requirement analysis: sono frasi "inutili" perche non comprensibili dal linguaggio macchina
+	(try copilot per microsoft)
+meglio definire un modello: rappresentazione che cattura aspetti ESSENZIALI del problema e non i dettagli e che la macchina capisce. in questo caso "che entità ci sono nel sistema" (due attori attivi) e "come interagiscono" (non procedure call ma messaggi tipo dispatch o request o event a quanto pare)
+	tutti i programmi sono modelli ma non viceversa (modelli>programmi)
+
+attore = entità attiva che scambiano messaggi e non a memoria comune e vivono in un contesto
+dispatch è point to point fire and forget
+event non è point to point, la sorgente non sa a chi arriva, info emessa percepita da qualcuno
+
+nel modello si cattura SOLO i requisiti, quindi per ora non scegliamo la comunicazione tra le 3 disponibili, non c'è scritto. hanno 2 contesti diversi (2 end-points).
+importante: il modello dei requisiti deve essere uguale per TUTTI. se non c'è scritto niente sulla comunicazione non ce la metti.
+
+test plans: a parole leggi.
+
+----------------------- Problem analysis -----------------------
+non "io risolvo il problema in questo modo", questo nel progetto
+ma esaminare le problematiche del problema
+
+cosa è ball?
+qui due analisti possono avere opinioni diverse però: per me request è meglio per il prof il dispatch (dice che è bello quando l'altro non risponde così vuol dire che ho vinto)
+Conflitto tra analisti è bloccante, non si puo andare al progetto prima di mettere d'accordo tutti:
+	fare 2 branch quidni due mini progetti (sviluppati in poco tempo senza dettagli strani) ma solo per capire le differenza tra i due mondi
+
+----------------------- Architettura logica -----------------------
+voglio sia quella finale che quella che sviluppo ora (in un unico contesto)
+
+
+currentmessage.messagecontent ball(1)
+
+basta copiare codice, male male se lo fai.
+
+Sstem -trace favedere tutti i messaggi
+shenTimer scatena questo messaggio: local_tout_ping_s0
+
+--------------- deployment --------------------
+consegna del prodotto: anzi che farlo andare su eclipse basta fare doppio click su un file
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/PingPongSystem24.html#a-first-deployment
+gradlew distzip
+crea in build->distribution uno zip
+crea C:\iss24Run 
+copiaci lo zip
+
+main.java.test concepire una test unit
+noi controlliamo se ping scambia il messaggio 5 volte
+testing automatizzato possibile csolo quando c'è qualcosa di automatizzabile.
+un observer NON cambia l'architettura logica del sistema ma al massimo un UpdateResource da qualche parte
+quando ping trasmette e riceve
+
+nel test
+@beforClass inizializza il sistema
+get runtime.exec (del file che abbiamo deployato prima BOOH mi son persof)
+se commentishowoutput non vedi piu i messaggi applicativi ma solo i messaggi finali.
+
+connSupport != null quando il contesto si apre sulla porta 8014 mi pare
+
+btw activete using deploy è molto piu veloce rispetto a gradle
+
+observer diventa una arbitro: deve attivare la partita e finirla. fa da observer e arbitro (fischio di inizio e fine)
+
+
+
+
+
+

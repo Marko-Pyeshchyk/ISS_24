@@ -1,0 +1,52 @@
+System pingpong24
+Dispatch ball : ball(N) "info exchanged"
+
+Context ctxtest  ip [host="localhost" port=8014]
+
+QActor ping context ctxtest {
+	
+	State s0 initial {
+		println("Ping START") color green
+		
+		delay 1000
+		println("Batto") color green
+		
+		[# var N = 1 #]
+		forward pong -m ball : ball($N)
+	}
+	Transition t0 whenTime 1100 -> endOfExcange
+				  whenMsg ball -> handleBall
+	
+	State handleBall {
+		onMsg(ball: ball(X)){
+			[# var A = payloadArg(0)#]
+			println("ricevuto $A") color green
+			
+			[# System.exit(0) #]
+		}
+	}
+	
+	State endOfExcange {
+		println("ho vinto") color green
+		[# System.exit(0) #]
+	}
+	
+}
+
+QActor pong context ctxtest { 
+	State s0 initial {
+		println("Pong START") color red
+	}
+	Transition t0 whenMsg ball -> handleBall
+	
+	State handleBall {
+		onMsg( ball : ball(X)){
+			[# var A = payloadArg(0) #]
+			println("ricevuto $A") color red
+			
+			delay 1000
+			//forward ping -m ball : ball($A)
+		}
+	}
+	Transition t0 whenMsg ball -> handleBall
+}
