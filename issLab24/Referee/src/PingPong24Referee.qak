@@ -1,0 +1,113 @@
+System ref
+
+Dispatch ball : ball(N)
+Dispatch ballview : ball(N)
+
+Request info : info(X)
+Reply obsinfo : obsinfo(X) for info
+
+Context ctxtest  ip [host="localhost" port=8080]
+
+QActor ping context ctxtest{
+  [#  var K = 1; val TMAX = 1500L #]
+  State s0 initial{
+  	println("$name STARTS") color red
+  }
+  Transition t0
+  	whenMsg ball -> reply
+
+  State reply{
+  	onMsg( ball : ball(X)){
+     [# K = payloadArg(0).toInt() #]
+     [# K=K+1 #]
+     delay 500
+     println("$name sends $K") color red
+	 forward pong -m ball : ball($K)
+	 updateResource [# "ball($K)" #]
+    }
+  }
+  Transition t1
+	whenTimeVar TMAX -> endofexchange
+	whenMsg 	ball -> reply
+
+  State endofexchange{
+    println("$name ENDS") color red
+  }
+}
+
+QActor pong context ctxtest {
+[#  val TMAX = 1500L #]
+
+  State s0 initial{
+    println("$name STARTS") color green
+  }
+  Transition t0
+	whenMsg ball -> reply
+
+  State reply{
+    onMsg( ball : ball(X)){
+    	[# var N = payloadArg(0).toInt() #]
+    	if [# N < 9 #] {
+    		 [# N=N+1 #]
+		     println("$name sends $N") color green
+			 forward ping -m ball : ball($N)
+			 updateResource [# "ball($N)" #]
+		}
+	}
+  }
+  Transition t0
+    whenTimeVar TMAX -> endofexchange
+    whenMsg 	ball -> reply
+
+  State endofexchange{
+    println("$name ENDS ") color green
+  }
+}
+
+QActor referee context ctxtest{
+  [# var J = 0; var NLAST = 0; val TOBSMAX=3000L #]
+  
+  State s0 initial{
+    println("$name STARTS") color magenta
+	observeResource ping msgid ballview
+	observeResource pong msgid ballview
+	delay 2000
+	println("Invio messaggio iniziale") color blue
+	forward ping -m ball : ball(0)
+  }
+  Transition t0
+	whenTimeVar TOBSMAX -> gameended
+	whenMsg 	ballview -> updateinfoongame
+
+  State updateinfoongame{
+      onMsg( ballview :  ball(X) ){
+        [# J = payloadArg(0).toInt() #]
+        if [# J > 0 #] { [# NLAST=J #] }
+      }
+  }
+  Transition t0
+    whenTimeVar TOBSMAX -> gameended
+    whenMsg 	ballview -> updateinfoongame
+
+  State gameended{
+  	if [# NLAST % 2 == 0 #] {  
+  		println("vince pong") color blue
+ 	} else {
+ 		println("vince ping") color blue
+ 	}
+    println("$name waits for request") color blue
+  }
+  Transition t0
+  	whenTime    2000 -> endsystem
+  	whenRequest info -> handleinfo
+
+  State handleinfo{
+    replyTo info with obsinfo : obsinfo($NLAST)
+ 	[# System.exit(0) #]
+  }
+  
+  State endsystem{
+    println("$name ENDS") color blue
+    [# System.exit(0) #]
+  }
+}

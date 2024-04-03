@@ -50,7 +50,7 @@ copiaci lo zip
 
 main.java.test concepire una test unit
 noi controlliamo se ping scambia il messaggio 5 volte
-testing automatizzato possibile csolo quando c'è qualcosa di automatizzabile.
+testing automatizzato possibile solo quando c'è qualcosa di automatizzabile.
 un observer NON cambia l'architettura logica del sistema ma al massimo un UpdateResource da qualche parte
 quando ping trasmette e riceve
 
