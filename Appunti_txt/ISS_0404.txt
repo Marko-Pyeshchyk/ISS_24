@@ -1,0 +1,44 @@
+
+referee come fa a coordinare?
+direttore di orchestra 	(centralizzato)		noi scegliamo questo
+coreografia 		(non)
+
+
+se deve coordinare fischia l'inizio della partita SOLO quando sono tutti pronti (ma qui il prof rinuncia)
+	presupponiamo che appensa il sistema parte (ovvero l'arbitro ha il controllo) allora sono tutti pronti
+	ciascun nodo ha il file .pl che rappresenta la struttura del sistema, ovvero chi conosci e che messaggi mandi(con ping pong e referee hai 3 punti di vista dello stesso sistema)
+	il sistema si sblocca quando sono tutti e 3 pronti, se non non partono i QAktor. nel distribuito NON servono i delay solo nel concentrato perche se no vieni fregato dalla CPU
+
+eventi: ci sono, usiamoli per far iniziare la partita. un evento viene mandato a tutti gli altri contesti del sistema. lo percepisce solo ping (perche è interessato, in attesa dell'evento)
+il referee osserva entrambi, i ping e pong devono fare updateResource per notificarglielo (ad esempio in caso di falli)
+event VS update resource: il primo viene mandato a tutti gli altri, UR invece è piu specifico
+
+_______________________________ scarica windows terminal e ___________________________
+prendi i 3 distZip di ping pong e referee
+mettili dentro la cartella del deployment
+lanciali tutti e 3 .bat con il nuovo windows terminal
+
+
+
+________________________________	compito:		_____________________ 
+ modello dei requisiti (modello SOLO leggendo i requisiti): quali entità quanti nodi e quanti entità su ciascun nodo, come interagiscono tra di loro (solo LEGGENDO). tutti modelli uguali
+i modelli dell'analisi sono invece diversi li paragoniamo a lezione martedì.
+
+modellazione del sonar è ad esempio un event
+poi nell'analisi bisogna capire chi fa cos, se il sonar sa cosa è una distanza minima, responsabilità di ogni parte del sistema e come si relazionano
+
+non dobbiamo fare un progetto ma solo l'analisi, quindi un doc HTML ma i grafici li facciamo in paint?
+parole/ paint/ prog finto e python?
+
+
+
+
+
+letteralmente letto questo:
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/ServiceMath24Synch.html
+modelli test plans e user story
+
+
+
+
+	
