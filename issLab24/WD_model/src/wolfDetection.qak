@@ -1,0 +1,103 @@
+System wd
+
+Dispatch turnOn: turnOn(N)
+Dispatch turnOff: turnOff(N)
+Dispatch foto: foto(X)
+
+Event detection: detection(X)
+Event detectionEND: detectionEND(X)
+
+Context ctx_bosco ip [host="127.0.0.1" port=8080]
+Context ctx_stazione ip [host="localhost" port=8000]
+
+QActor sonar context ctx_bosco {
+	State s0 initial {
+		println("sonar		READY") color yellow
+	}
+	Transition t0 whenMsg turnOn -> sonarOn
+	
+	State sonarOn {
+		println("sonar		rilevato qualcosa a distanza < DMIN") color yellow
+		emit detection: detection(yes) 
+		delay 1000
+		println("sonar		non rilevo piu niente") color yellow
+		emit detectionEND: detectionEND(yes) 
+	}
+}
+ 
+QActor led_blu context ctx_bosco {
+	State s0 initial {
+		println("ledBlu		READY") color blue
+	}
+	Transition t0 whenEvent detection -> bluOn
+	
+	State bluOn{
+		println("ledBlu		ON") color blue
+	}
+	Transition t1 whenEvent detectionEND -> blueOff
+	
+	State blueOff {
+		println("ledBlu		OFF") color blue
+	}
+	Transition t0 whenEvent detection -> bluOn
+}
+
+
+QActor fotocamera context ctx_bosco {
+	State s0 initial  {
+		println("foto		READY") color gray
+	}
+	Transition t0 whenEvent detection -> scattaFoto
+	
+	State scattaFoto {
+		println("foto		scatto fotografia") color gray
+		forward elaboratore -m foto: foto(X)
+	}
+}
+
+
+// ========================================================================================================
+
+
+
+QActor stazione context ctx_stazione {
+	State s0 initial {
+		println("stazione		READY") color magenta
+		delay 500
+		println("")
+		println("stazione		accensione del sonar") color magenta
+		forward sonar -m turnOn: turnOn(1)
+		delay 3000
+		[#System.exit(0)#]
+	}
+}
+
+
+QActor elaboratore context ctx_stazione {
+	State s0 initial {
+		println("elab		READY") color green
+	}
+	Transition t0 whenMsg foto -> elaboraFoto
+	
+	State elaboraFoto {
+		println("elab		rilevato un lupo!") color green
+		forward led_rosso -m turnOn: turnOn(1)
+	}
+}
+
+
+QActor led_rosso context ctx_stazione {
+	State s0 initial {
+		println("ledRosso		READY") color red
+	}
+	Transition t0 whenMsg turnOn -> rossoOn
+	
+	State rossoOn {
+		println("ledRosso		ON") color red
+	}
+	Transition t1 whenEvent detectionEND -> rossoOff
+	
+	State rossoOff {
+		println("ledRosso		OFF") color red
+	}
+}

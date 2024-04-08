@@ -1,0 +1,3 @@
+{"actor":"sonar", "msgType":"dispatch", "curstate":"s0", "nextstate":"sonarOn", "msgId":"turnOn"}
+{"actor":"elaboratore", "msgType":"dispatch", "curstate":"s0", "nextstate":"elaboraFoto", "msgId":"foto"}
+{"actor":"led_rosso", "msgType":"dispatch", "curstate":"s0", "nextstate":"rossoOn", "msgId":"turnOn"}

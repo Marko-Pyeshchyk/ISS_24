@@ -147,7 +147,7 @@ eclipse {
 
 application {
     //Define the main class for the application.
-    mainClass    = 'it.unibo.ctx0.MainCtx0Kt'
+    mainClassName    = 'it.unibo.ctx0.MainCtx0Kt'
 }
  
  jar {
@@ -164,8 +164,8 @@ application {
 }
 
 task dovesiamo {
-    println("projectDir= $projectDir") //C:\Didattica2024\issLab24\service24
-    println("buildDir  = $buildDir")   //C:\Didattica2024\issLab24\service24\build
+    println("projectDir= $projectDir")  
+    println("buildDir  = $buildDir")    
 }
 
 distributions {
