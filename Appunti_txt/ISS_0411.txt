@@ -1,0 +1,14 @@
+--- dota la app qak con un interfaccia grafica WEB:
+Facade facadesmathasynch port 8088 usingactor smathasynchfacade inctx ctxsmathfacade  
+                   appl "unibo.servicefacade24.Servicefacade24Application" 
+                   UserLibs -f "servicefacade24-1.0" -f "servicefacade24-1.0-plain"
+
+tomcat sta sulla 8088 a ricevere richieste e traduce per il mio programma qak
+
+file.pl descrive il sistema in fatti prolog
+
+docker ps -a
+docker rmi -f immagineDaRimuovere
+
+docker comando con /bin/bash 
+basta far partire ./smathfacade
