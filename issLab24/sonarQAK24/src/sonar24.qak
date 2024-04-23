@@ -1,0 +1,64 @@
+System sonar
+
+Event sonardata: distance(X)
+Context ctxsonarqak24 ip [ host="localhost" port=8080]
+
+
+QActor sonarusagemock context ctxsonarqak24 {
+	State s0 initial {
+		println("sonarusagemock START") color red
+	}
+}
+
+QActor sonar24 context ctxsonarqak24 {
+	State s0 initial {
+		println("sonar24 START") color green
+		delay 1000
+	}
+}
+
+QActor sonardevice context ctxsonarqak24 {
+	[# 
+		lateinit var process : Process
+		lateinit var out : java.io.BufferedReader
+	#]
+	State s0 initial {
+		println("sonardevice START") color blue
+		[# process = Runtime.getRuntime().exec("python ./sonar.py") #]
+	}
+	Goto s1
+	
+	State s1{
+		[#  out = process.getInputStream().bufferedReader() #]
+	}
+	Goto readOut
+	
+	State readOut {
+		[# 
+			var D : String
+			var Distance = 0
+			
+			try {
+				D = out.readLine() 	
+				val vd = D.toFloat()
+				val v = vd.toInt()
+				if (v <=  100) {
+					Distance = v
+				} else {
+					Distance = 0
+				}
+				
+			} catch (e: Exception) {
+				println("Errore")
+			}	
+		#]
+		
+		if [# Distance > 0 #] {
+			println("distanza = $Distance") color blue
+			emitlocalstream sonardata: distance($Distance)
+		}
+		
+	}
+	Goto s1
+	
+}

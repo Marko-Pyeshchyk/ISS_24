@@ -1,0 +1,19 @@
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/RaspApplCode24.html#progetto-sonarqak24
+propedeutico sviluppo per l'esame, ok
+
+analisi
+
+ho 2 requisiti ma uno è il core business: "mandare D". quindi lo prioritizzo
+sonar24: un componente ad alto livello che manda 2 dispatch (per semplicità)
+	come riceve la D invece? polling BAD. sonardevice è il componente che incapsula il codice di sonar.py e sparerà eventi(D). il prof lo migliora con (observer likeS) ovvero solo coloro che sono sottoscritti a questi eventi li riceveranno. (non è publish-sub perche non ci sono broker)
+sonarusagemock: è per simulare che sonar24 puo ricevere start/stop anche da qualsiasi altro componente, e fa una delega perchè sonardevice è l'unico che puo agire sul sonar fisico
+
+
+progettazione
+
+qui prima progetta un attore con kotlin/java per vedere se funziona e poi la sommerge
+poi aggiunge un datacleaner che fa da filtro. questo filtro è quello iscritto al sonardevice e poi passa i dati belli a sonar24. grazie a streamer Event che permette di sottoscrivere gente ad eventi. a sonar23 arriva solamente obstacle(X) (così pero la logica applicativa è meno sommersa)
+===================================================== scorsa volta fine =============================================0
+usare lateinit per le variabli cosi non devi controllare se una variabile è null oppure no
+
+dato il servizio di boundary walk, fare il proogettino
