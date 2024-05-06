@@ -1,0 +1,23 @@
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/BoudaryWalk24.html#boundarywalk24
+
+3 contestiper il modello dei requisiti:
+	sonar	robot	core (business dell'app)
+il robot è misura di tutte le cose
+
+proattivo: DEVE fare il giro della stanza pre programmato
+reattivo: il sonar manda eventi obstacle(D)
+messaggio di stato: cosa fa il robot ora
+
+------------------- analisi del problema: PROBLEMATICHE (da mettere sempre) ----------------
+		quindi guardare le tecnologie per vedere le soluzioni
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/BoudaryWalk24.html#boundarywalk24
+la logica applicativa si adatta alla tecnologia => NON va bene
+
+il robot non è un POJO ma un componente attivo con cui interagisco a messaggi, io conosco il 'cril' per mandare comandi.
+(con un POJO le dipendenze sono letteralmente i metodi dell'interfaccia del POJO)
+
+per ora io mi adeguo al linguaggio del robot. (come se ci fossero 10 studenti di paesi differenti, allora io APP/prof parlo come mi pare ad esempio inglese, spero che tra me e gli studenti un traduttore che gli fa capire)
+invertiamo le dipendenze: io mi invento il MIO linguaggio per parlare al robot, ma il traduttore dove sta? in mezzo ci sta e si chiama INTERPRETE (adapter è object-oriented, interprete è messagi-oriented)
+'aril' UwU
+

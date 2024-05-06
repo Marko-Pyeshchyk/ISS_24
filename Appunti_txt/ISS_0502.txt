@@ -1,0 +1,28 @@
+bw24proto1all.qak
+esamina il codice
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/VrobotLLMoves24.html#id1
+immagine in fondo + codice in main.resources.robotvirtual;
+nell acom sincrona ez
+nella comunicazione asincrona 2 opzioni: polling o observer
+					mando un messaggio e poi "delego" un observer che aspetta la risposta dopo 5secondi
+
+come nella figura il robot dopo aver ricevuto il move forward tipo per 5 secondi, il robot manda se la mossa è andata bene o male: vrinfo(move elapsed) o vrinfo(collision, t)
+questi messaggi vanno nell'update dell'observer (in questo caso il POJO è l'observer)
+il supporto alla ws chiama il metodo update: la WS quando ha info in input chiama il metodo update del POJO-observer
+il OWNER di questo POJO è un attore (che sta a livello superiore): per passargli info o le mette in coda o genera un evento
+289 if(owner!=null) MsgUtil.emitLocalStreamEvent(info,owner,null);  
+emit local stream event funziona se l'owner è subscribato allo stream
+291 .emit invece fa un evento che viene percepito da qualunque attore che fa parte del sistema
+nel programma vengono emessi eventi collision che non vengono gestiti ma commentato in proto1all c'è un osservatore che, visto che la WS è osservabile, puo vedere tutti gli eventi
+btw il POJO usa l'owner stesso per generare gli eventi
+
+khinsider
+
+sostituire il sonarmock dove c'è emit wilf(10) con il raspberry che fa questo. i due contesti si devono conoscere. 
+provare anche con MQTT
+
+work TODO
+l'analista dice quali strategie sono possibili, piu di una, NON come farebbe. 
+fare solo i key point: problematiche e strategie.
+provare vrll24test.qak

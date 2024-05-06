@@ -1,0 +1,195 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 132120576 bytes for Failed to commit area from 0x0000000082000000 to 0x0000000089e00000 of length 132120576.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/os/windows/os_windows.cpp:3283), pid=11268, tid=2908
+#
+# JRE version:  (11.0.17+10) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (11.0.17+10-LTS-269, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: org.jetbrains.kotlin.cli.jvm.K2JVMCompiler @C:\Users\marko\Desktop\ISS_24\issLab24\bw24\build\20240502_6086866159462297492.compiler.options
+
+Host: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz, 8 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Thu May  2 09:47:58 2024 ora legale Europa occidentale elapsed time: 0.049531 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000210fef91000):  JavaThread "Unknown thread" [_thread_in_vm, id=2908, stack(0x0000003c2d000000,0x0000003c2d100000)]
+
+Stack: [0x0000003c2d000000,0x0000003c2d100000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x62b5da]
+V  [jvm.dll+0x7653df]
+V  [jvm.dll+0x766a89]
+V  [jvm.dll+0x767113]
+V  [jvm.dll+0x23dd28]
+V  [jvm.dll+0x62896a]
+V  [jvm.dll+0x61d625]
+V  [jvm.dll+0x2f2d3c]
+V  [jvm.dll+0x2f2bc2]
+V  [jvm.dll+0x2f78e6]
+V  [jvm.dll+0x33a2df]
+V  [jvm.dll+0x339d10]
+V  [jvm.dll+0x2d0368]
+V  [jvm.dll+0x2d14d6]
+V  [jvm.dll+0x73f9a7]
+V  [jvm.dll+0x74123f]
+V  [jvm.dll+0x347039]
+V  [jvm.dll+0x725280]
+V  [jvm.dll+0x3b5c1f]
+V  [jvm.dll+0x3b7d31]
+C  [jli.dll+0x5207]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17344]
+C  [ntdll.dll+0x526b1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00000210fcd77a20, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x00000210fefa5000 GCTaskThread "GC Thread#0" [stack: 0x0000003c2d100000,0x0000003c2d200000] [id=6728]
+  0x00000210fefd4800 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000003c2d200000,0x0000003c2d300000] [id=8540]
+  0x00000210fefd7000 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000003c2d300000,0x0000003c2d400000] [id=15988]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffe942ff5f7]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000210fef8cc40] Heap_lock - owner thread: 0x00000210fef91000
+
+Heap address: 0x0000000082000000, size: 2016 MB, Compressed Oops mode: Non-zero based: 0x0000000082000000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff6f5600000 - 0x00007ff6f560f000 	C:\Program Files\Java\jdk-11.0.17\bin\java.exe
+0x00007ffed6a70000 - 0x00007ffed6c68000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffed57a0000 - 0x00007ffed585d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffed43b0000 - 0x00007ffed46a6000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffed42b0000 - 0x00007ffed43b0000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffecf530000 - 0x00007ffecf545000 	C:\Program Files\Java\jdk-11.0.17\bin\VCRUNTIME140.dll
+0x00007ffecf550000 - 0x00007ffecf568000 	C:\Program Files\Java\jdk-11.0.17\bin\jli.dll
+0x00007ffed5270000 - 0x00007ffed5320000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffed4aa0000 - 0x00007ffed4b3e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffed5ff0000 - 0x00007ffed6090000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffed5670000 - 0x00007ffed5793000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffed4a70000 - 0x00007ffed4a97000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ffed58c0000 - 0x00007ffed5a5f000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffed49f0000 - 0x00007ffed4a12000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffec4360000 - 0x00007ffec45fa000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5\COMCTL32.dll
+0x00007ffed5110000 - 0x00007ffed513b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffed4190000 - 0x00007ffed42a7000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffed46b0000 - 0x00007ffed474d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffecc4a0000 - 0x00007ffecc4aa000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffed4f40000 - 0x00007ffed4f72000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffeb2460000 - 0x00007ffeb24fb000 	C:\Program Files\Java\jdk-11.0.17\bin\msvcp140.dll
+0x00007ffe94020000 - 0x00007ffe94b3a000 	C:\Program Files\Java\jdk-11.0.17\bin\server\jvm.dll
+0x00007ffed5530000 - 0x00007ffed5538000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffece4e0000 - 0x00007ffece4e9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffed55f0000 - 0x00007ffed565b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffebfe50000 - 0x00007ffebfe77000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffed2900000 - 0x00007ffed2912000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffecf520000 - 0x00007ffecf530000 	C:\Program Files\Java\jdk-11.0.17\bin\verify.dll
+0x00007ffed2590000 - 0x00007ffed2774000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffec0080000 - 0x00007ffec00b4000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffed4750000 - 0x00007ffed47d2000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffeccf10000 - 0x00007ffeccf38000 	C:\Program Files\Java\jdk-11.0.17\bin\java.dll
+0x00007ffecf510000 - 0x00007ffecf51a000 	C:\Program Files\Java\jdk-11.0.17\bin\jimage.dll
+0x00007ffece8a0000 - 0x00007ffece8b6000 	C:\Program Files\Java\jdk-11.0.17\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-11.0.17\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5;C:\Program Files\Java\jdk-11.0.17\bin\server
+
+VM Arguments:
+java_command: org.jetbrains.kotlin.cli.jvm.K2JVMCompiler @C:\Users\marko\Desktop\ISS_24\issLab24\bw24\build\20240502_6086866159462297492.compiler.options
+java_class_path (initial): C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-compiler-embeddable\1.9.22\9cd4dc7773cf2a99ecd961a88fbbc9a2da3fb5e1\kotlin-compiler-embeddable-1.9.22.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.9.22\d6c44cd08d8f3f9bece8101216dbe6553365c6e3\kotlin-stdlib-1.9.22.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-script-runtime\1.9.22\f8139a46fc677ec9badc49ae954392f4f5e7e7c7\kotlin-script-runtime-1.9.22.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-reflect\1.9.22\761ab33cf85f03a3a24595e1b92639d82e7a9564\kotlin-reflect-1.9.22.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-daemon-embeddable\1.9.22\20e2c5df715f3240c765cfc222530e2796542021\kotlin-daemon-embeddable-1.9.22.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.jetbrains.intellij.deps\trove4j\1.0.20200330\3afb14d5f9ceb459d724e907a21145e8ff394f02\trove4j-1.0.20200330.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 132120576                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2113929216                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-11.0.17
+CLASSPATH=C:\Users\marko\Desktop\ISS_24\issLab24\bw24\\gradle\wrapper\gradle-wrapper.jar
+PATH=C:\Program Files\Java\jdk-11.0.17\bin;C:\Gradle\gradle-8.6\bin;C:\Program Files\Python310\Scripts\;C:\Program Files\Python310\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\System32\OpenSSH\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\marko\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\Git LFS;C:\Users\marko\AppData\Roaming\Python\Python310\Scripts;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\nodejs\;C:\Program Files\Graphviz\bin;C:\Users\marko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\Users\marko\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\marko\AppData\Roaming\Python\Python310\Scripts;C:\Users\marko\Desktop\antlr;;C:\Users\marko\AppData\Local\JetBrains\IntelliJ IDEA Community Edition 2022.3.2\bin;;C:\Users\marko\AppData\Roaming\npm
+USERNAME=marko
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Hyper-V role detected
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 10 microcode 0xb4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
+
+Memory: 4k page, system-wide physical 8058M (563M free)
+TotalPageFile size 8058M (AvailPageFile size 41M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 60M, peak: 186M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (11.0.17+10-LTS-269) for windows-amd64 JRE (11.0.17+10-LTS-269), built on Sep 13 2022 19:26:37 by "mach5one" with MS VC++ 15.9 (VS2017)
+
+END.
