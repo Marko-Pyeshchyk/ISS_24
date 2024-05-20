@@ -24,7 +24,7 @@ class Driver_mock ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
-						CommUtils.outblue("$name START")
+						CommUtils.outcyan("$name START")
 						delay(200) 
 						request("store", "store(10)" ,"system" )  
 						//genTimer( actor, state )
@@ -39,7 +39,7 @@ class Driver_mock ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 						if( checkMsgContent( Term.createTerm("store_accepted(TICKET)"), Term.createTerm("store_accepted(X)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
 								 val Msg = payloadArg(0)  
-								CommUtils.outblue("reply: $Msg")
+								CommUtils.outcyan("reply: $Msg")
 						}
 						//genTimer( actor, state )
 					}

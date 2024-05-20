@@ -24,7 +24,7 @@ QActor system context ctx_css {
 QActor driver_mock context ctx_css{
 	
 	State s0 initial {
-		println("$name START") color blue
+		println("$name START") color cyan
 		delay 200
 		request system -m store: store(10) 
 	}
@@ -33,7 +33,7 @@ QActor driver_mock context ctx_css{
 	State handle_reply {
 		onMsg(store_accepted:store_accepted(X)){
 			[# val Msg = payloadArg(0) #]
-			println("reply: $Msg") color blue
+			println("reply: $Msg") color cyan
 		}
 	}
 }

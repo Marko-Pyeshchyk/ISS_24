@@ -34,18 +34,11 @@ class Pong ( name: String, scope: CoroutineScope, isconfined: Boolean=false  ) :
 				}	 
 				state("handlePing") { //this:State
 					action { //it:State
-						if( checkMsgContent( Term.createTerm("hit(N)"), Term.createTerm("hit(A)"), 
+						if( checkMsgContent( Term.createTerm("hit(N)"), Term.createTerm("hit(ping)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
 								delay(1000) 
-								if(  Math.random()*100+1 <= 90  
-								 ){answer("hit", "hit_resp", "hit(a)"   )  
 								CommUtils.outred("Pong")
-								}
-								else
-								 {CommUtils.outred("YOU LOSE")
-								 answer("hit", "miss_resp", "miss(a)"   )  
-								  System.exit(0)  
-								 }
+								answer("hit", "hit_resp", "hit(pong)"   )  
 						}
 						//genTimer( actor, state )
 					}
@@ -53,20 +46,6 @@ class Pong ( name: String, scope: CoroutineScope, isconfined: Boolean=false  ) :
 					sysaction { //it:State
 					}	 	 
 					 transition(edgeName="t01",targetState="handlePing",cond=whenRequest("hit"))
-					transition(edgeName="t02",targetState="handleMiss",cond=whenDispatch("miss"))
-				}	 
-				state("handleMiss") { //this:State
-					action { //it:State
-						if( checkMsgContent( Term.createTerm("miss(N)"), Term.createTerm("miss(N)"), 
-						                        currentMsg.msgContent()) ) { //set msgArgList
-								CommUtils.outred("YOU WIN")
-								 System.exit(0)  
-						}
-						//genTimer( actor, state )
-					}
-					//After Lenzi Aug2002
-					sysaction { //it:State
-					}	 	 
 				}	 
 			}
 		}

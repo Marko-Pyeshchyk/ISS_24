@@ -1,0 +1,48 @@
+System nor
+
+Dispatch in: in(X,Y)
+Dispatch out: out(X)
+
+Context ctx1 ip [host="localhost" port=8080]
+
+QActor nor context ctx1 {
+	State s0 initial {
+		println("-----------------------------------------------------------------") color green
+		println("$name START") color green
+	}
+	Transition t0 whenMsg in-> handle_in
+	
+	State handle_in{
+		onMsg(in: in(X,Y)){
+			[# 
+				val x = payloadArg(0).toInt()
+				val y = payloadArg(1).toInt()
+			#]
+			println("x = $x") color green
+			println("y = $y") color green
+			
+			if [# x+y == 1 #] {
+				forward mock_user -m out:out(1) 
+				
+			} else {
+				forward mock_user -m out:out(0) 
+			}
+		}
+	}
+} 
+
+QActor mock_user context ctx1 {
+	State s0 initial {
+		println("$name START") color cyan
+		forward nor -m in:in(0,1) 
+	}
+	Transition t0 whenMsg out-> handle_out
+	
+	State handle_out{
+		onMsg(out: out(X)){
+			[# val x = payloadArg(0) #]
+			println("output: $x") color cyan
+			[#System.exit(0)#]
+		}
+	}
+}

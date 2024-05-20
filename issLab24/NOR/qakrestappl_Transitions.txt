@@ -1,0 +1,2 @@
+{"actor":"nor", "msgType":"dispatch", "curstate":"s0", "nextstate":"handle_in", "msgId":"in"}
+{"actor":"mock_user", "msgType":"dispatch", "curstate":"s0", "nextstate":"handle_out", "msgId":"out"}
