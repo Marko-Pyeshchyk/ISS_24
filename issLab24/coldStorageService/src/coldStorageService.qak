@@ -1,6 +1,7 @@
 System cold_storage_service
 
 Request store: store(N)
+Dispatch store: store(X)
 Reply store_accepted: store_accepted(TICKET) for store "ticket è un numero intero"
 Reply store_rejected: store_rejected(X) for store
 
@@ -8,7 +9,15 @@ Context ctx_css  ip [host="localhost" port=8080]
 
 
 
-QActor system context ctx_css {
+QActor system context ctx_css  withobj tk using "Tickets()"{
+	import "main.resources.tickets.Tickets"
+	import "main.resources.tickets.Values"
+	
+	[# 
+		var weight = 60
+		val max_weight = 100
+	#]
+	
 	State s0 initial {
 		println("$name START") color red
 	}
@@ -16,9 +25,36 @@ QActor system context ctx_css {
 	
 	State handleStore{
 		onMsg(store: store(X) ){
-			replyTo store with store_accepted: store_accepted(ok)
+			if [# tk.spaceBooked() + weight <= max_weight #] {
+				[# 
+					val weight_requested = payloadArg(0).toInt()
+					val Ticket = tk.store(weight_requested)
+				#]
+				replyTo store with store_accepted: store_accepted($Ticket)
+			}
+			else {
+				replyTo store with store_rejected: store_rejected(no)
+			}
 		}
-	}	
+	}
+	Transition t1 whenRequest store -> handleStore
+				  whenMsg store -> store_weight
+	
+	
+	State store_weight {
+		println("weight: $weight") color red
+		onMsg(store: store(X) ){
+			[#
+				val ticket = payloadArg(0)
+				weight += tk.checkValidity(ticket)
+			#]
+			// checkValidity è una funzione che returna il peso se il ticket è valido altrimenti 0
+			println("weight: $weight") color red
+		}	
+	}
+	Transition t1 whenRequest store -> handleStore
+				  whenMsg store -> store_weight
+		
 }
 
 QActor driver_mock context ctx_css{
@@ -28,12 +64,30 @@ QActor driver_mock context ctx_css{
 		delay 200
 		request system -m store: store(10) 
 	}
-	Transition t0 whenReply store_accepted -> handle_reply
+	Transition t0 whenReply store_accepted -> handle_ok
+				  whenReply store_rejected -> handle_no
 	
-	State handle_reply {
+	State handle_ok {
 		onMsg(store_accepted:store_accepted(X)){
-			[# val Msg = payloadArg(0) #]
-			println("reply: $Msg") color cyan
+			[# val Ticket = payloadArg(0) #]
+			println("reply: $Ticket") color cyan
+			
+			delay 2000
+			forward system -m store: store($Ticket)
+			delay 1000
+			[# System.exit(0) #]
 		}
+	}
+	
+	State handle_no {
+		println("goodbye") color cyan
+		[# System.exit(0) #]
+	}
+}
+
+
+QActor colrd_room context ctx_css{
+	State s0 initial {
+		println("$name START") color green
 	}
 }
