@@ -1,0 +1,196 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 132120576 bytes for Failed to commit area from 0x0000000082000000 to 0x0000000089e00000 of length 132120576.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/os/windows/os_windows.cpp:3283), pid=2492, tid=14392
+#
+# JRE version:  (11.0.17+10) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (11.0.17+10-LTS-269, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: --module-path=C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-fxml\11\d5ff9262ef49d166db658d15f37e3ecff38fde4b\javafx-fxml-11-win.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-web\11\5c8a3b6cacde832437dff8e21a82749b5f66c1cf\javafx-web-11-win.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-controls\11\af8d24de44e16a19ae959028eb23a48c145fb682\javafx-controls-11-win.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-media\11\b7a33f3ff0cad17af71e883c0921bc6819cad9c8\javafx-media-11-win.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-graphics\11\9345c7ea43dbcc73a62eca5332717b4ce617e6c6\javafx-graphics-11-win.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-base\11\ad3a4acfaa28b484d30c40c1f009445cc3f6e68b\javafx-base-11-win.jar --add-modules=javafx.controls,javafx.fxml,javafx.web,javafx.graphics -Dfile.encoding=windows-1252 -Duser.country=IT -Duser.language=it -Duser.variant it.unibo.ctxcleaner24.MainCtxcleaner24Kt
+
+Host: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz, 8 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Thu May  9 15:48:18 2024 ora legale Europa occidentale elapsed time: 0.029191 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001d35293b800):  JavaThread "Unknown thread" [_thread_in_vm, id=14392, stack(0x000000ccf3500000,0x000000ccf3600000)]
+
+Stack: [0x000000ccf3500000,0x000000ccf3600000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x62b5da]
+V  [jvm.dll+0x7653df]
+V  [jvm.dll+0x766a89]
+V  [jvm.dll+0x767113]
+V  [jvm.dll+0x23dd28]
+V  [jvm.dll+0x62896a]
+V  [jvm.dll+0x61d625]
+V  [jvm.dll+0x2f2d3c]
+V  [jvm.dll+0x2f2bc2]
+V  [jvm.dll+0x2f78e6]
+V  [jvm.dll+0x33a2df]
+V  [jvm.dll+0x339d10]
+V  [jvm.dll+0x2d0368]
+V  [jvm.dll+0x2d14d6]
+V  [jvm.dll+0x73f9a7]
+V  [jvm.dll+0x74123f]
+V  [jvm.dll+0x347039]
+V  [jvm.dll+0x725280]
+V  [jvm.dll+0x3b5c1f]
+V  [jvm.dll+0x3b7d31]
+C  [jli.dll+0x5207]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17344]
+C  [ntdll.dll+0x526b1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000001d35062e860, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001d352951800 GCTaskThread "GC Thread#0" [stack: 0x000000ccf3600000,0x000000ccf3700000] [id=3532]
+  0x000001d352982800 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000ccf3700000,0x000000ccf3800000] [id=7280]
+  0x000001d352984000 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000ccf3800000,0x000000ccf3900000] [id=10736]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffc0fa4f5f7]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001d352938320] Heap_lock - owner thread: 0x000001d35293b800
+
+Heap address: 0x0000000082000000, size: 2016 MB, Compressed Oops mode: Non-zero based: 0x0000000082000000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff7d92a0000 - 0x00007ff7d92af000 	C:\Program Files\Java\jdk-11.0.17\bin\java.exe
+0x00007ffc6fc50000 - 0x00007ffc6fe48000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffc6e1c0000 - 0x00007ffc6e27d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffc6d650000 - 0x00007ffc6d946000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffc6dad0000 - 0x00007ffc6dbd0000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffc66160000 - 0x00007ffc66178000 	C:\Program Files\Java\jdk-11.0.17\bin\jli.dll
+0x00007ffc661c0000 - 0x00007ffc661d5000 	C:\Program Files\Java\jdk-11.0.17\bin\VCRUNTIME140.dll
+0x00007ffc6e740000 - 0x00007ffc6e7f0000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffc6fb70000 - 0x00007ffc6fc0e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffc6df20000 - 0x00007ffc6dfc0000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffc6dfc0000 - 0x00007ffc6e0e3000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffc6d950000 - 0x00007ffc6d977000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ffc6e470000 - 0x00007ffc6e60f000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffc55f50000 - 0x00007ffc561ea000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5\COMCTL32.dll
+0x00007ffc6daa0000 - 0x00007ffc6dac2000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffc6f0b0000 - 0x00007ffc6f0db000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffc6d980000 - 0x00007ffc6da97000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffc6d300000 - 0x00007ffc6d39d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffc649d0000 - 0x00007ffc649da000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffc6fb30000 - 0x00007ffc6fb62000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffc40600000 - 0x00007ffc4069b000 	C:\Program Files\Java\jdk-11.0.17\bin\msvcp140.dll
+0x00007ffc0f770000 - 0x00007ffc1028a000 	C:\Program Files\Java\jdk-11.0.17\bin\server\jvm.dll
+0x00007ffc6f0e0000 - 0x00007ffc6f0e8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffc65fb0000 - 0x00007ffc65fb9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffc530c0000 - 0x00007ffc530e7000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffc6f030000 - 0x00007ffc6f09b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffc6bae0000 - 0x00007ffc6baf2000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffc68090000 - 0x00007ffc680a0000 	C:\Program Files\Java\jdk-11.0.17\bin\verify.dll
+0x00007ffc6afd0000 - 0x00007ffc6b1b4000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffc653f0000 - 0x00007ffc65424000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffc6d3a0000 - 0x00007ffc6d422000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffc65b70000 - 0x00007ffc65b98000 	C:\Program Files\Java\jdk-11.0.17\bin\java.dll
+0x00007ffc68060000 - 0x00007ffc6806a000 	C:\Program Files\Java\jdk-11.0.17\bin\jimage.dll
+0x00007ffc65eb0000 - 0x00007ffc65ec6000 	C:\Program Files\Java\jdk-11.0.17\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-11.0.17\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5;C:\Program Files\Java\jdk-11.0.17\bin\server
+
+VM Arguments:
+jvm_args: --module-path=C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-fxml\11\d5ff9262ef49d166db658d15f37e3ecff38fde4b\javafx-fxml-11-win.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-web\11\5c8a3b6cacde832437dff8e21a82749b5f66c1cf\javafx-web-11-win.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-controls\11\af8d24de44e16a19ae959028eb23a48c145fb682\javafx-controls-11-win.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-media\11\b7a33f3ff0cad17af71e883c0921bc6819cad9c8\javafx-media-11-win.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-graphics\11\9345c7ea43dbcc73a62eca5332717b4ce617e6c6\javafx-graphics-11-win.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-base\11\ad3a4acfaa28b484d30c40c1f009445cc3f6e68b\javafx-base-11-win.jar --add-modules=javafx.controls,javafx.fxml,javafx.web,javafx.graphics -Dfile.encoding=windows-1252 -Duser.country=IT -Duser.language=it -Duser.variant 
+java_command: it.unibo.ctxcleaner24.MainCtxcleaner24Kt
+java_class_path (initial): C:\Users\marko\Desktop\ISS_24\issLab24\robotCleaner24\build\classes\java\main;C:\Users\marko\Desktop\ISS_24\issLab24\robotCleaner24\build\classes\kotlin\main;C:\Users\marko\Desktop\ISS_24\issLab24\robotCleaner24\build\resources\main;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\kotlinx-coroutines-core-jvm\1.7.3\2b09627576f0989a436a00a4a54b55fa5026fb86\kotlinx-coroutines-core-jvm-1.7.3.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\4.9.3\b0b14b3d12980912723fb8b66afb48dcda742fcb\okhttp-4.9.3.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.9.22\c4b17283ad7939e778989663f8301d871987fa5e\kotlin-stdlib-jdk7-1.9.22.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\2.8.0\49b64e09d81c0cc84b267edd0c2fd7df5a64c78c\okio-jvm-2.8.0.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.9.22\d6c44cd08d8f3f9bece8101216dbe6553365c6e3\kotlin-stdlib-1.9.22.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk8\1.9.22\dea0c11e2fa503ab891c8a090e3b54754472975d\kotlin-stdlib-jdk8-1.9.22.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.eclipse.californium\californium-proxy2\3.5.0\75d72a499b522210a20e2343ab491b63e315aa3a\californium-proxy2-3.5.0.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\30.1.1-jre\87e0fd1df874ea3cbe577702fe6f17068b790fd8\guava-30.1.1-jre.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\javax.websocket\javax.websocket-api\1.1\eeeb68631711256418dfbb47b11c731b6c8f6235\javax.websocket-api-1.1.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.glassfish.tyrus.bundles\tyrus-standalone-client\1.9\cf9e6cdbd6ad2a72bc54c0823c0ac31c76df4b9e\tyrus-standalone-client-1.9.jar;C:\Users\marko\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient\4.5.13\e5f6cae5ca7ecaac1ec2827a9e2d65a
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 132120576                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2113929216                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-11.0.17
+CLASSPATH=C:\Users\marko\Desktop\ISS_24\issLab24\robotCleaner24\\gradle\wrapper\gradle-wrapper.jar
+PATH=C:\Program Files\Java\jdk-11.0.17\bin;C:\Gradle\gradle-8.6\bin;C:\Program Files\Python310\Scripts\;C:\Program Files\Python310\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\System32\OpenSSH\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\marko\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\Git LFS;C:\Users\marko\AppData\Roaming\Python\Python310\Scripts;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\nodejs\;C:\Program Files\Graphviz\bin;C:\Users\marko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\marko\AppData\Local\Microsoft\WindowsApps;C:\Users\marko\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\marko\AppData\Roaming\Python\Python310\Scripts;C:\Users\marko\Desktop\antlr;;C:\Users\marko\AppData\Local\JetBrains\IntelliJ IDEA Community Edition 2022.3.2\bin;;C:\Users\marko\AppData\Roaming\npm
+USERNAME=marko
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Hyper-V role detected
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 10 microcode 0xb4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
+
+Memory: 4k page, system-wide physical 8058M (476M free)
+TotalPageFile size 8058M (AvailPageFile size 72M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 60M, peak: 186M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (11.0.17+10-LTS-269) for windows-amd64 JRE (11.0.17+10-LTS-269), built on Sep 13 2022 19:26:37 by "mach5one" with MS VC++ 15.9 (VS2017)
+
+END.

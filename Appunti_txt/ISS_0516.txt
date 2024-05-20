@@ -1,0 +1,31 @@
+hiroshima
+
+MAPPING simbolo-concetto
+per dare semantica ad una frase (sintatticamente corretta?) nella mia testa salta fuori un concetto da simboli che vedo
+per ora la macchina non lo puo fare
+
+coldRoom è un insieme di coordinate (rettangolo)
+
+desctiviamo il sistema a partire da:
+la struttura			bottom-up, riduzionismo (fisica moderna)
+	prima costruire tutti i componenti del sistema e poi farli interagire
+il comportamento 		top-down, olistico
+	system coldStorageService, se vedo il sistema come unitò unica ALLORA è un solo actor. il sistema parte con la richiesta di un camionista che vuole scaricare 5Kg. allora risponde Si(e mi da un ticket) o No. quindi prendo il camion e lo porto alla INDOOR "vorrei scaricare e questo è il mio Ticket", il sistema risponde NO se scade il TICKETTIME
+
+riassunto: ci vuole prima la struttura del comportamento
+cosa fare pre rappresentare la coldRoom	
+1) var Kotlin
+2) POJO
+3) QAktor
+il frigo non puo solo riempirsi ma si puo anche svuotare 
+
+compiti:
+1: ticket e coldRoom che sono? fare progetto tale che mostri il modello.
+2: NOR a 2 ingressi e 1 uscita. 
+3: QAK flip flop con 2 qaktor che interagiscono e si scambiano messaggi
+
+
+analisi del problema: sarà importante fare delle mappe per dire al robot come muoversi
+
+per lanciare mapobstacle prima far partire il baiscrobot24 ha il basicrobot da lanciare . 2 cmd
+altro esperimento: Costruzione (usando basicrobot.qak e Planner) della mappa di una stanza con ostacoli

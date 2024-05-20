@@ -1,0 +1,39 @@
+System cold_storage_service
+
+Request store: store(N)
+Reply store_accepted: store_accepted(TICKET) for store "ticket è un numero intero"
+Reply store_rejected: store_rejected(X) for store
+
+Context ctx_css  ip [host="localhost" port=8080]
+
+
+
+QActor system context ctx_css {
+	State s0 initial {
+		println("$name START") color red
+	}
+	Transition t1 whenRequest store -> handleStore
+	
+	State handleStore{
+		onMsg(store: store(X) ){
+			replyTo store with store_accepted: store_accepted(ok)
+		}
+	}	
+}
+
+QActor driver_mock context ctx_css{
+	
+	State s0 initial {
+		println("$name START") color blue
+		delay 200
+		request system -m store: store(10) 
+	}
+	Transition t0 whenReply store_accepted -> handle_reply
+	
+	State handle_reply {
+		onMsg(store_accepted:store_accepted(X)){
+			[# val Msg = payloadArg(0) #]
+			println("reply: $Msg") color blue
+		}
+	}
+}

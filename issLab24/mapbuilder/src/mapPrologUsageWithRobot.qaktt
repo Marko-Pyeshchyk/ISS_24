@@ -1,0 +1,97 @@
+System mapbuild
+ 
+/*
+========================================
+mapProogUsageWithRobot.qak
+========================================
+*/
+Dispatch move       : move(M)  
+ 
+Request  step       : step(T)
+Reply   stepdone    : stepdone(X)   for step
+Reply   stepfailed  : stepfailed(X) for step
+
+Context ctxmapbuild  ip [host="localhost"      port=8720  ]
+Context ctxvrqak     ip [host="127.0.0.1"      port=8125  ]
+
+ExternalQActor vrqak context ctxvrqak  //Servizio di ccesso al (virtual)robot
+
+QActor mapbuilder context ctxmapbuild {
+	import "main.resources.map.RoomMap" 
+	import "main.resources.map.RobotDir" 
+	[# 
+	   
+	   var CurPlan = ""
+	   var CurMove = ""
+	   var RSTEP   = false
+	   var Goon    = true
+	#] 
+	
+	
+	State s0 initial{ 
+		forward vrqak -m move : move(h)
+		[# RobotDir.setDir(RobotDir.Direction.DOWN) #]
+		delay 1000
+		println("$name STARTS") color blue
+	}
+	Goto useMap
+	 
+	  
+	State useMap{ 
+		solve( consult("mapProlog.pl")	 )
+		solve( consult("maprules.pl")	 )
+		solve( showCells ) 
+		println("$name | execThePlan SOLVE") color yellow   
+   		//solve( test(P) )
+  		solve( plan(0,0,2,4,down,P) ) 
+		println( "$currentSolution" ) color yellow
+ 		[# CurPlan = getCurSol("P").toString().replace("[","").replace("]","").replace(",","") #]
+		println("PATH= $CurPlan") color yellow		
+	}
+	Goto execThePlan 
+	
+	
+	State execThePlan{
+		//println("$name | execThePlan CurPlan=$CurPlan") color yellow
+		if [# CurPlan.length > 0 #]{
+			[# CurMove = ""+CurPlan[0]; 
+			   CurPlan = CurPlan.drop(1) 
+			#]
+		    println("$name | execThePlan CurMove=$CurMove") color blue		
+		}else{ [# CurMove="" #] }
+	}
+	Goto doMove if [# (CurMove.length > 0) #] else end
+	
+	State doMove{
+		if [# CurMove == "w" #]{ 
+			delay 200
+			request vrqak -m step : step(350)
+        } 
+		if [# CurMove == "l" #]{ 
+			forward vrqak -m move : move(l)
+        }
+		if [# CurMove == "r" #]{ 
+			forward vrqak -m move : move(r)
+        }
+	}
+	Transition t0
+		whenTime 500         -> execThePlan
+		whenReply stepdone   -> execThePlan
+		whenReply stepfailed -> planko
+
+	State end{
+		println("$name | end with CurMove=$CurMove") color yellow
+		println("")
+		[# System.exit(0) #]
+	}
+	
+	State planko{
+		println("$name | planko with CurPlan=$CurPlan") color magenta
+		[# System.exit(0) #]
+	}	
+ 
+	
+ 	
+	
+	
+}

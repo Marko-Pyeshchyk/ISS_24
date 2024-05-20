@@ -1,0 +1,47 @@
+ withobj vr using "VrobotLLMoves24.create(\"localhost\",myself)"
+rappresenta un POJO dentro un attore
+è quel supporto di cui l'app ha bisogno per parlare con il robot
+
+per ora il robot è proattivo e fa quello che gli pare
+noi vogliamo aggiungere un sonar che genera un evento, e ok
+ma ora bisogna rendere sensibile il robot
+
+usiamo il returnFromInerrupt 
+si ricorda lo stato da cui era partito e le transizioni da fare
+NON si interrompe main uno step (anche se durasse 10 secondi) azioni atomiche. quindi il robot si interrompe tra un passo e l'altro
+
+----------------- compito ---------------
+109-111 bad, inventare una mossa di ordine superiore che fa la mossa e aggiorna la mappa
+mettere comandi che vanno in una cella e aggiornano la mappa, in Java
+-----------------------------------------
+
+altro progetto: mapbuild-> mapPrologUsage
+estensione .pl = prolog
+consult file.pl (consulta la base di conoscienza scritta in questo file)
+
+guarda mapProlog.pl 
+	r = robot
+	0 = vuoto
+	1 = ci sono passato
+è un fatto che nella cella (0,0) c'è il robot e la (1,0) non è stata toccata
+
+============================ file importante =======================
+maprules.pl
+si possono leggere queste frasi in modo 
+o dichiarativo  :- è un SE è vero a DX allora è vero SX(goal). ad esempio eseguire una print la rende automaticamente vera
+o procedurale	:- è a SX il nome della funzione a DX il body
+stdout è una print
+findall: "dammi tutte le soluzioni a cells (X,Y,V)" ci restituisce una lista Prolog in CELLS
+showelements: mostra la lista ElementListString = CELLS, la trasforma in una lista normale Prolog, show = ez funzioncina ricorsiva, alla fine unifica con [] lista vuota e si ferma
+
+commenta la 50 e vedi che c'è un autoplanner per il goal solve( plan(0,0,2,2,down,P) )
+	in P c'è il plan, ovvero la lista delle mosse
+	in maprules.pl c'è proprio il pianificatore
+	ricorda che il ! cut è toglie tutto il backtracking se una funziona
+
+
+
+
+
+
+

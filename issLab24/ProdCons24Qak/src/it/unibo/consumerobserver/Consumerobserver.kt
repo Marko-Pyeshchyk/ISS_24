@@ -24,14 +24,16 @@ class Consumerobserver ( name: String, scope: CoroutineScope, isconfined: Boolea
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
-						CommUtils.outmagenta("$name STARTS")
-						observeResource("localhost","8014","ctxprodcons","consumer","info")
+						CommUtils.outblue("$name STARTS")
+						observeResource("localhost","8015","ctxconsumer","consumer","info")
+						observeResource("localhost","8015","ctxconsumer","consumer","short")
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t07",targetState="handleUpdate",cond=whenDispatch("info"))
+					 transition(edgeName="t06",targetState="handleUpdate",cond=whenDispatch("info"))
+					transition(edgeName="t07",targetState="handleUpdate",cond=whenDispatch("short"))
 				}	 
 				state("handleUpdate") { //this:State
 					action { //it:State
@@ -43,6 +45,7 @@ class Consumerobserver ( name: String, scope: CoroutineScope, isconfined: Boolea
 					sysaction { //it:State
 					}	 	 
 					 transition(edgeName="t08",targetState="handleUpdate",cond=whenDispatch("info"))
+					transition(edgeName="t09",targetState="handleUpdate",cond=whenDispatch("short"))
 				}	 
 			}
 		}
