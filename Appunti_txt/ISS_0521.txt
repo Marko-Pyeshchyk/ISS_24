@@ -1,0 +1,23 @@
+C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/BasicRobot24.html#br24-esperimenti-di-uso-con-virtualrobot
+entità che vale per 3: virtual e 2 fisici
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/BasicRobot24.html#br24-le-funzioni
+fai una richiesta al robot. lui si deve fare un piano ed eseguirlo.
+ENGAGE per iniziare una sessione
+il resto è banale
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/BasicRobot24.html#br24-le-funzioni
+segui
+crea anche una mappa con le X che sono gli ostacoli
+
+se MQTT connection lost -> f12 console
+
+il basic robot è un sistema QAK. partono 2 server: 1 TCP e 1 COAP ma non un server web. allora quella pagina di MapGui.html non dovrebbe esistere.
+in questa pagina HTML ci metto codice JS che mi fa usare websocket.
+poi ha guardato un po la pagina GUI html.
+MQTT pusblish subscribe.
+
+
+mi sa che poi guarda MQTT java publisher.java
+
+runna il planusage
