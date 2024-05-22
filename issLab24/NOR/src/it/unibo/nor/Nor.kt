@@ -42,7 +42,7 @@ class Nor ( name: String, scope: CoroutineScope, isconfined: Boolean=false  ) : 
 												val y = payloadArg(1).toInt()
 								CommUtils.outgreen("x = $x")
 								CommUtils.outgreen("y = $y")
-								if(  x+y == 1  
+								if(  x+y == 0  
 								 ){forward("out", "out(1)" ,"mock_user" ) 
 								}
 								else

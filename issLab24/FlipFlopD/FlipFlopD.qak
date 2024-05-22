@@ -1,0 +1,103 @@
+System ffd
+
+Dispatch in: in(X)
+Dispatch out: out(X)
+
+Context ctx_ffd ip [host="localhost" port=8080]
+
+QActor nor_s context ctx_ffd {
+	[# 
+		var input: Int = 0 
+		var back: Int = 0
+	#]
+	
+	State s0 initial {
+		println("-----------------------------------------------------------------") color green
+		println("$name START") color green
+	}
+	Goto out
+	
+	State out {
+		if [# input+back <= 0 #] {
+				//forward mock_user -m out:out(1) 
+				println("$name: 1") color green
+				forward nor_r -m out:out(1) 
+			} else {
+				//forward mock_user -m out:out(0) 
+				println("$name: 0") color green
+				forward nor_r -m out:out(0) 
+			}
+	}
+	Transition t0 whenMsg out -> handle_back
+				  whenMsg in -> handle_in
+				  
+	// nel caso arrivi il segnale dall altro NOR
+	State handle_back {
+		onMsg(out: out(X)){
+			[# back = payloadArg(0).toInt() #]
+		}
+	}
+	Goto out
+	
+	// nel caso arrivi il segnale INPUT
+	State handle_in {
+		onMsg(in: in(X)){
+			[# input = payloadArg(0).toInt() #]
+		}
+	}
+	Goto out
+}
+
+QActor nor_r context ctx_ffd {
+	[# 
+		var input: Int = 0 
+		var back: Int = 1
+	#]
+	
+	State s0 initial {
+		println("-----------------------------------------------------------------") color green
+		println("$name START") color green
+	}
+	Goto out
+	
+	State out {
+		if [# input+back <= 0 #] {
+				//forward mock_user -m out:out(1) 
+				println("$name: 1") color green
+				forward nor_s -m out:out(1) 
+			} else {
+				//forward mock_user -m out:out(0) 
+				println("$name: 0") color green
+				forward nor_s -m out:out(0) 
+			}
+	}
+	Transition t0 whenMsg out -> handle_back
+				  whenMsg in -> handle_in
+	
+	// nel caso arrivi il segnale dall altro NOR
+	State handle_back {
+		onMsg(out: out(X)){
+			[# back = payloadArg(0).toInt() #]
+		}
+	}
+	Goto out
+	
+	// nel caso arrivi il segnale INPUT
+	State handle_in {
+		onMsg(in: in(X)){
+			[# input = payloadArg(0).toInt() #]
+		}
+	}
+	Goto out
+}
+
+QActor mock_user context ctx_ffd {
+	State s0 initial {
+		println("$name START") color cyan
+		delay 500
+		forward nor_r -m in:in(0) 
+		forward nor_s -m in:in(1)
+		delay 500
+		[# System.exit(0) #]
+	}
+}

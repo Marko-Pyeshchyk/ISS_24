@@ -21,7 +21,7 @@ QActor nor context ctx1 {
 			println("x = $x") color green
 			println("y = $y") color green
 			
-			if [# x+y == 1 #] {
+			if [# x+y == 0 #] {
 				forward mock_user -m out:out(1) 
 				
 			} else {

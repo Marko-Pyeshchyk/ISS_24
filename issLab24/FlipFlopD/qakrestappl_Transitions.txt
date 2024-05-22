@@ -1,0 +1,4 @@
+{"actor":"nor_s", "msgType":"dispatch", "curstate":"out", "nextstate":"handle_back", "msgId":"out"}
+{"actor":"nor_s", "msgType":"dispatch", "curstate":"out", "nextstate":"handle_in", "msgId":"in"}
+{"actor":"nor_r", "msgType":"dispatch", "curstate":"out", "nextstate":"handle_back", "msgId":"out"}
+{"actor":"nor_r", "msgType":"dispatch", "curstate":"out", "nextstate":"handle_in", "msgId":"in"}
