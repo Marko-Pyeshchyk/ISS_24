@@ -26,6 +26,7 @@ class Sonar24 ( name: String, scope: CoroutineScope, isconfined: Boolean=false  
 					action { //it:State
 						CommUtils.outgreen("sonar24 START")
 						delay(1000) 
+						 System.exit(0) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002

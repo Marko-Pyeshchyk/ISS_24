@@ -24,7 +24,7 @@ class Driver_mock ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
-						CommUtils.outcyan("$name START")
+						CommUtils.outblue("$name START")
 						delay(200) 
 						request("store", "store(10)" ,"system" )  
 						//genTimer( actor, state )
@@ -32,30 +32,15 @@ class Driver_mock ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t05",targetState="handle_ok",cond=whenReply("store_accepted"))
-					transition(edgeName="t06",targetState="handle_no",cond=whenReply("store_rejected"))
+					 transition(edgeName="t01",targetState="handle_reply",cond=whenReply("store_accepted"))
 				}	 
-				state("handle_ok") { //this:State
+				state("handle_reply") { //this:State
 					action { //it:State
 						if( checkMsgContent( Term.createTerm("store_accepted(TICKET)"), Term.createTerm("store_accepted(X)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
-								 val Ticket = payloadArg(0)  
-								CommUtils.outcyan("reply: $Ticket")
-								delay(2000) 
-								forward("store", "store($Ticket)" ,"system" ) 
-								delay(1000) 
-								 System.exit(0)  
+								 val Msg = payloadArg(0)  
+								CommUtils.outblue("reply: $Msg")
 						}
-						//genTimer( actor, state )
-					}
-					//After Lenzi Aug2002
-					sysaction { //it:State
-					}	 	 
-				}	 
-				state("handle_no") { //this:State
-					action { //it:State
-						CommUtils.outcyan("goodbye")
-						 System.exit(0)  
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002

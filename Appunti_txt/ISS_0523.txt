@@ -1,0 +1,51 @@
+ho una applicazione QAK (basicrobot) e per interfacciarmi con una web GUI uso SPRING
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html//Facade24Start.html
+
+applicazione molto distribuita:			architettura logica
+browser-PC
+server-app spring/FACADE/tomcat
+basicrobot-QAK
+
+le info devono viaggiare dal browser all app e viceversa
+
+
+PARTE DINAMICA: interazioni (4 sottoproblemi)
+pagina	server
+server	app
+app	server
+server	browser
+
+in basicrobot c'è la possibilità di mettre un clientid
+far girare MQTT java publisher
+tra me e il basicrobot c'è un broker. il faccio sublish e lui subscribe penso
+
+far partire docker-basicrobot-facede24
+connettersi a localhost:8085
+in futuro non sarà localhost ma il robot fisico
+stiamo cominicando con un server web con una webSocket (l'alternativa è HTTP): FACADE.		per iniziare pero abbiamo fatto una request HTTP (GET) solo per farci dare la pagina localhost:8085
+
+commentare di basicrobot dentromqtt file qak: connect broker, subscribe, publish
+
+
+
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html//Facade24Start.html#fcd24s-vista-interna
+come si progetta il software sul server
+	(chi fa app web è tech dependent perche deve prima sapere il framework da adottare. il nostro framework è:
+	SPRINGBOOT
+	file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/SpringBootIntro.html#architettura-del-webserver
+	con i suoi componenti-base evidenziati in azzurro.)
+bene, torniamo alla vista interna
+spring usa le annotazioni Java
+FacadeBuilder crea tutti i componenti con le frecce arancioni
+all'esterno del sistema (nell'immagine coap) la nostra applicazione QAK
+ApplGuiCore.java !importante!: file in Facade24, qui ci sta il core business della applicazione web. il suo CoreBusiness è mettere in comunicazione 
+WSHandler: gestisce le informazioni che, tramite i javascript, vengono traspemme tra GUI e JS (frecce verdi)
+coapObserver: se il basicrobot cambia di stato voglio che un client si collega a qualche entità della applicazione QAK e mostro le informazioni che vedo sul sito i guess.
+
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html//Facade24Start.html#fcd24s-interazioni
+possibile interazione
+c'è un adapterOUT-IN, quindi l'interfaccia è stata proposta dal core quindi c'è la inversione delle dipendenze
+btw mi arrivano informazioni sotto in robotdisplay o infodisplay o forse no boh che ne so
+

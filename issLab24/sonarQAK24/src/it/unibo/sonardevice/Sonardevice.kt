@@ -21,9 +21,7 @@ class Sonardevice ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 	}
 	override fun getBody() : (ActorBasicFsm.() -> Unit){
 		//val interruptedStateTransitions = mutableListOf<Transition>()
-		 
-				lateinit var process : Process
-				lateinit var out : java.io.BufferedReader
+		 lateinit var process  
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
@@ -38,7 +36,7 @@ class Sonardevice ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 				}	 
 				state("s1") { //this:State
 					action { //it:State
-						  out = process.getInputStream().bufferedReader()  
+						 var out = process.getInputStream().bufferedReader()  
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
@@ -49,11 +47,11 @@ class Sonardevice ( name: String, scope: CoroutineScope, isconfined: Boolean=fal
 				state("readOut") { //this:State
 					action { //it:State
 						 
-									var D : String
+									var D 
 									var Distance = 0
 									
 									try {
-										D = out.readLine() 	
+										D = out.readline() 	
 										val vd = D.toFloat()
 										val v = vd.toInt()
 										if (v <=  100) {
