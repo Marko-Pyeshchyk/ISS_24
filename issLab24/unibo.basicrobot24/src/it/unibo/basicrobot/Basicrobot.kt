@@ -49,9 +49,7 @@ class Basicrobot ( name: String, scope: CoroutineScope, isconfined: Boolean=fals
 						delegate("setdirection", "robotpos") 
 						 robot.create(myself,"basicrobotConfig.json")  
 						 RobotType = robot.robotKind  
-						connectToMqttBroker( "wss://test.mosquitto.org:8081" )
 						CommUtils.outmagenta("basicrobot | CREATED  (and connected to mosquitto) ... ")
-						subscribe(  "unibodisi" ) //mqtt.subscribe(this,topic)
 						robot.move( "h"  )
 						delay(300) 
 						robot.move( "a"  )
@@ -98,8 +96,6 @@ class Basicrobot ( name: String, scope: CoroutineScope, isconfined: Boolean=fals
 								robot.move( payloadArg(0)  )
 								updateResourceRep( "moveactivated(${payloadArg(0)})"  
 								)
-								//val m = MsgUtil.buildEvent(name, "info", "info(done($CurrentMove))" ) 
-								publish(MsgUtil.buildEvent(name,"info","info(done($CurrentMove))").toString(), "unibodisi" )   
 						}
 						}
 						//genTimer( actor, state )

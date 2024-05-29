@@ -1,0 +1,57 @@
+	--- riassuntino --- 
+POJO sono dei morti e noi all'inizio abbiamo sviluppato attoriche quando nascono possono computare in parallelo con altri attori e possono far nascere altri attori
+
+attori si sacambiano messaggi, interagiscono attraverso:
+dispatch	fire and forget
+request		mi aspetto una risposta
+event		deve raggiungere tutte le entità del sistema
+noi però non faccaimo neanche una recieve ma usiamo le transizioni (sui 3 messaggi)
+
+architettura: parti de sistema e la loro interazione da obj oriented a message passing. 
+visto che non c'era abbiamo creato un linguaggio di modellazione (e non programmazione)
+abstaction gap: distanza tra cio che voglio fare e cio che la tecnologia mi permette.
+abstraction gap è semplicemente trasformare il linguaggio naturale in programma b-u o t-d.
+meglio fare bottom-up o top-down? portare su la tecnologia o fare cio che voglio e poi portarlo giu alla tecnologia?
+substrato tecnologico nel nostro caso è JAVA (linguaggio ad altro livello, mica assembler).
+
+ESAME FINALE: simulazione di ambiente industriale. il committente in linguaggio naturale mi chiama e vuole un programma. 
+come strumento abbiamo un linguaggio in grado di creare modelli velocemente (sono anche programmi).
+ogni programma è un modello ma non viceversa.
+i modelli parla facilmente sia alle macchine che agli umani.
+QAK è un metamodello: devo avvicinare JAVA a livello di astrazione del problema e al suo testo.
+
+inoltre applicazione IOT+raspberry.
+voglio un processo di produzione software dove a costi ridotti parlo con umani e con le macchine.
+
+ANALISI DEI REQUISITI
+trasforma linguaggio naturale in altro linguaggio naturale
+e forma un primo modello col quale interagire sia con la macchina che con l'utente. il succo estraibile dal testo dei requisiti.
+mandare modello dei requisiti, il prof deve controllare che non ci siano discrepanze tra tutti gli studenti.
+bisogna capire quali requisiti affrontare per primi. tipo interfaccia grafica o movimenti del robot? il team decide quale requisito prioritizzare, anche una lista. questo è lo sprint0.
+sprint1: un requisito perfettamente funzionante (progetto). lo faccio vedere al committente.
+gli sprint sono come le cipolle, fatti a strati.
+
+ANALISI DEL PROBLEMA
+ho capito bene i requisiti, chiarire bene che la stanza sia sulla terra e non su marte.
+domain(applicativo) driven progettazione
+qui nel dominio applicativo userò dei robot che sono oggetti fisici e lavorano in un ambiente, necessito di comunicare con robot. comunicandoci direttamente o indirettamente(fermare il robot quando viene rilevato dal sensore -> evento dal sensore)
+poi abbiamo un virtual robot che simula il mondo reale.
+
+
+btw "a ddrrobot working as a transport trolley" bisogna chiedere che cosa intende il commitente per DDRrobot. non è ragionamento ma bisogna chiedere il significato dei termini. si puo chiedere anche cosa è il transport trolley.
+il trolley ha funzionalità in piu quindi: il robot specializza/eredita trolley. il robot è un trolley debuffato.
+cosa è il DDRrobot? link alla paggina del prof del virtualrobot(risposta 1). il committente dice che il DDRrobot è "il basicrobot". stessa roba:
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html//BasicRobot24.html
+il basicrobot è un software è un POJO o un attore? un attore, si vede dalla prima immagine.
+è in grado di rapportarsi con 3 tipi di robot diversi. questo attraverso un file di configurazione
+8090 richieste HTTP
+8091 webSocket
+INVERSIONE DELLE DIPENDENZE: ogniuno dei 3 componenti POJO si adatta alle interfaccie che vuole il basicrobot. il basico robot usa gli altri 3, non il viceversa.
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html//BasicRobot24.html#br24-una-prima-architettura
+il DDRrobot è di piu di un virtual robot. ha dispatch request respondse e emit event quando incontra un ostacolo.
+
+il transport trolley USA il basicrobot, è un attore che cominica col basicrobot.
+
+compiti:
+fare 2 programmi fare giro della stanza, calcolare la lunghezza del perimetro, fermare il robot quando incontra il sonar
+leggere il lettore è invitato a:...........................................................................................................................................................................................................................................................
