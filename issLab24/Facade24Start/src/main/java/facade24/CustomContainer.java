@@ -1,4 +1,4 @@
-package main.java.facade24;
+package facade24;
 
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;

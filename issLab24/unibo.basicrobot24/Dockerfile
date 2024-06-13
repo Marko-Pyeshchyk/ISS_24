@@ -5,8 +5,8 @@
 FROM openjdk:12.0.2
 EXPOSE 8020
 ## ADD extracts the tar
-ADD ./build/distributions/unibo.basicrobot23-2.0.tar /
-WORKDIR /unibo.basicrobot23-2.0/bin
+ADD ./build/distributions/basicrobot23-1.0.tar /
+WORKDIR /unibo.basicrobot23-1.0/bin
 COPY ./*.pl ./
 COPY ./*.json ./
 COPY ./*.bin ./
@@ -19,9 +19,9 @@ COPY ./*.txt ./
 CMD ["bash", "unibo.basicrobot23"]
 
 ## 1) gradlew distTar
-## 2) docker build -t basicrobot23:2.0 .
+## 2) docker build -t basicrobot23:1.0 .
 ## OCCORRE APRIRE UDP PER PERMETTERE COAP
-## docker run -it --rm --name basicrobot23 -p8020:8020/tcp -p8020:8020/udp --privileged basicrobot23:2.0  /bin/bash
+## docker run -it --rm --name basicrobot23 -p8020:8020/tcp -p8020:8020/udp --privileged basicrobot23:1.0  /bin/bash
 ## MODIFICA DEL FILE DI CONFIGURAZIONE
 # docker cp basicrobotConfig.json 89193dba02a2:/unibo.basicrobot23-2.0/bin/basicrobotConfig.json
 # docker cp stepTimeConfig.json cab3aa29f8eb:/unibo.basicrobot23-2.0/bin/basicrobotConfig.json

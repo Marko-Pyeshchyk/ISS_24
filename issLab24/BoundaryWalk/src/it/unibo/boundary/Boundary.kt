@@ -87,8 +87,7 @@ class Boundary ( name: String, scope: CoroutineScope, isconfined: Boolean=false 
 				state("end") { //this:State
 					action { //it:State
 						forward("disengage", "disengage($A)" ,"basicrobot" ) 
-						CommUtils.outyellow("this is my last message, goodbye! 				Perimeter: $Perimeter")
-						System.exit(9) 
+						CommUtils.outyellow("this is my last message, GOODBYE !!! 				Perimeter: $Perimeter")
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
@@ -100,7 +99,6 @@ class Boundary ( name: String, scope: CoroutineScope, isconfined: Boolean=false 
 						request("step", "step($STEP)" ,"basicrobot" )  
 						 Perimeter += STEP  
 						CommUtils.outyellow("WAITING ON SONAR")
-						delay(1500) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002

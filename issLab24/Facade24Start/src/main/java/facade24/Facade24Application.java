@@ -1,4 +1,4 @@
-package main.java.facade24;
+package facade24;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

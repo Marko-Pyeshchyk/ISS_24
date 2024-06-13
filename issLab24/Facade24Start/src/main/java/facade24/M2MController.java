@@ -1,4 +1,4 @@
-package main.java.facade24;
+package facade24;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;

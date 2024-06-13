@@ -1,4 +1,4 @@
-package main.java.facade24;
+package facade24;
 
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;

@@ -1,4 +1,4 @@
-package main.java.facade24;
+package facade24;
 import unibo.basicomm23.coap.CoapConnection;
 import unibo.basicomm23.utils.CommUtils;
 

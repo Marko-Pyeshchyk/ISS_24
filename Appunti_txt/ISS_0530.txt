@@ -1,0 +1,48 @@
+facade -> creare jar -> trovare entry point e ha dato la facade in basicrobot
+quella roba commentata la volta scorsa
+percio se la scommenti poi devi copiare la parte del build.gradle2024 in quello vero
+
+per applicazioni, specialmente web, è neccessaria la clean architecture:
+	le app hanno bisogno di sostanza e ciapini
+	al centro ci sono aclassi e oggetti
+prima si usavano DB relazionali e esistevano applicazioni monolitiche
+al centro della CA c'è il core business, il dominio. poi ci sono gli use-cases
+dato un dominio posso metterci tutte le app che voglio attorno.
+dato il robot non posso fare solo il refrigerator ma tipo quello che voglio
+in teoria va bene anche il DB, non contrasta questa idea MA è un bottleneck: 
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html//Architetture.html#architetture-monolitiche
+
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html//SpringBootintro.html
+solo fino ai 3 punti: 1 2 3
+nel controller non ci va logica applicativa. 
+quando premo un pulsante tipo STEP della facade(data da springboot = è il controller webserver, gli arrivano 1 GET e poi tante POST)
+cliccare è una POST perchè (le GET chiedono e le POST cambiano). la unica GET che c'è qui è quando scriviamo localhost:8085 poi sono tutte POST.
+il robot ha la logica applicativa del robot e non deve avere codice che si adatta alla GUI.
+il controller non fa altro che delegare al basicrobot.
+clicco l(left) -> info dalla pagina -> controller che trasforma la richiesta in un dispatch aril 
+p(step) -> controller trasforma il messaggio in una richiesta aril -> inoltro la richiesta al basicrobot -> il ocntroller non si blocca in attesa della risposta (comunicazione asincrona) -> quando riceve la risposta dal robot la deve mandare di nuovo alla pagina HTML
+btw se non voglio sfarfalli della pagina (ovvero tutte GET) usiamo AJAX o WebSocket
+
+se mandiamo un piano da HTML al controller allora 
+
+----------------------------------------------- immagini importanti --------------------------------
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html//Facade24Start.html#fcd24s-vista-interna
+actorOUTin ha la responsabilità di parlare col basicrobot
+click -> WSH che inoltra a AGC (inoltra dispatch o richiesta)-> OUTINactor -> basicrobot
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html//Facade24Start.html#fcd24s-interazioni
+ciascun pezzo ha la sua precisa responsabilità: 2 che si interfacciano con pagina HTML e basicrobot e AGC decide cosa fare
+btw il controller si deve adattare al core. il core mostra i metodi e gli altri si adattano.
+	ad esempio actorOUTIN deve implementare una interfaccia che viene definita da ApplGUIcore. INVERSIONE DELLE DIPENDENZE
+
+
+leggere in robotfacade24
+Robotfacade24Controller
+	setConfigParams
+main.resources.templates
+	basicrobot24EssentialGui.html
+95 guiCore.basicrobotconnect(robotip);		ci sta
+in RobotUtils.java applname è quello broken che ha i permessi supremi
+
+	
+la facade attravesrst GOT o POST restituisce la pagina con i valori giusti (infatti continui a vedere la mappa se la hai caricata la prima volta)

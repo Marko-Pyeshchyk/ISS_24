@@ -1,4 +1,4 @@
-package main.java.facade24;
+package facade24;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

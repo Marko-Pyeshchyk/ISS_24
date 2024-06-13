@@ -10,8 +10,8 @@
 
 
 var socket ;  
-var basicrobotTopic = "unibopyeshchyk" ; 
-var planusageTopic  = "unibopyeshchykplan" ; 
+var basicrobotTopic = "unibodisi" ; 
+var planusageTopic  = "unibodisiplan" ; 
 var moveCmdTempate  = "msg(cmd,dispatch,gui23xyz9526,basicrobot,cmd(M),1 )"
 var client          = mqtt.connect('wss://test.mosquitto.org:8081');
 var client1         = mqtt.connect('wss://test.mosquitto.org:8081');
@@ -83,8 +83,8 @@ $(function () {
  
 	function dopublish(cmd){
 	    var msg =  moveCmdTempate.replace("M",cmd)
-	    console.log("dopublish on unibopyeshchyk:  " + msg)
-		client.publish("unibopyeshchyk",msg);	
+	    console.log("dopublish on unibodisi:  " + msg)
+		client.publish("unibodisi",msg);	
 	}	
 	
 	function clearDisplay(){
@@ -106,7 +106,7 @@ tt    {color: green;}
 <h2>Basic robot GUI con MQTT	</h2>
 
 <ul>
-<li>Connesso a MQTT Broker <i>wss://test.mosquitto.org:8081</i> su topic <tt>unibopyeshchyk</tt>
+<li>Connesso a MQTT Broker <i>wss://test.mosquitto.org:8081</i> su topic <tt>unibodisi</tt>
 </li><li>
 Riceve sulla topic informazioni da basicrobot
 </li>

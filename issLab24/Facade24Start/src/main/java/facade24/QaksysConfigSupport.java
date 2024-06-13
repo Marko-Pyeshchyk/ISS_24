@@ -1,4 +1,4 @@
-package main.java.facade24;
+package facade24;
 
 import com.google.common.base.Charsets;
 import org.json.JSONException;

@@ -705,13 +705,13 @@ QActor boundary context ctxbasicrobot {
 		var A = "" 
 		var N:Int = 0	
 		var Perimeter:Int = 0
-		var STEP:Int = 100
+		var STEP:Int = 330
 	#]
 	State s0 initial {
 		subscribeTo basicrobot for sonardata
 		println("$name START") color yellow
 		delay 2000
-		request basicrobot -m engage:engage(boundary, 330)
+		request basicrobot -m engage:engage(boundary, $STEP)
 	}
 	Transition t0 whenReply engagedone -> engaged
 				  whenReply engagerefused -> end
@@ -747,13 +747,13 @@ QActor boundary context ctxbasicrobot {
 	
 	State end {
 		forward basicrobot -m disengage:disengage($A)
-		println("this is my last message, goodbye! 				Perimeter: $Perimeter") color yellow
-		[#System.exit(9)#]
+		println("this is my last message, GOODBYE !!! 				Perimeter: $Perimeter") color yellow
+		// [#System.exit(0) #]
 	}
 	
 	State handle_sonar {
 		request basicrobot -m step:step($STEP)
-		[# Perimeter += STEP #]
+		//[# Perimeter += STEP #]
 		
 		println("WAITING ON SONAR") color yellow
 		delay 1500

@@ -1,0 +1,19 @@
+docker-compose -f basicrobot.24 up
+24 importante perche il 23 non va
+
+nel progetto boundary walk dopo gli step il prof usa whenInterrupt pause. (quando c'è il returnFrom interrupt ricontrolla le transizioni)
+
+---- BR smette le info del sonar ----
+linea 126 introduce un observer. ma il basicrobot rispetto a COSA è osservabile? 2 tipi di info che il br spara:
+	informazioni sul sonar. ma perchè visto che il br non centra niente col sonar: informazione di ambiente. ad esempio anche la temperatura della stanza è un informazione che esiste magari da un sensore. qui il basicrobot emette informazioni.
+NON per forza deve essere così ma è possibile. tutte le informazioni di ambiente sono tali perche il robot le percepisce
+alternativa io osservo il sensore di temperatura.
+il basicrobot emette le informazioni con le "UpdateResource" per questo è osservabile
+	ad esempio nell'engage accept il br dice a tutto il mondo perc quale owner sta lavorando e ce ne sono altre...
+
+
+per creare l'immagine:
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html//BasicRobot24.html#br24-uso-di-docker
+segui le istruzioni dentro il Dockerfile del basicrobot
+
+

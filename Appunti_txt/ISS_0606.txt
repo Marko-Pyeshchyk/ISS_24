@@ -1,0 +1,49 @@
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/Intro2024.html
+alalalalaalalalalalalalalaalalalaalalalalalalalalalalalalallaalalalalalalalalalalalalalAlalalalALAlalalalALALALALALALALALALALalalallllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll12allllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllwelkjeeqkòwjrqòwrjjjjqwrjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeooooooooooopppppppppppppppppppppppppppppppppppppfffjlasfdjòasdfjsdftttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmqqqqqqqwwwertrrrrrrrrrrrrrrrrrrrrrryyyyyyrtrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrirrrrrrihjiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiaòskfjdsaòldjfaòsdljfaòsldfjjaòsldkfjaòslfjlaòslfkòlkjasfòljfffffsdaòljfasòlkjfffsaòljfffffasòlkòjfdasòlkjfsdaòlkfjjjjjjjasòlkòjfffaasòllkjòòòlllkòllllllllllllllòòòòòòòòòòòòòòòòòòòòòòllllllllllllllllllllkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkjjjjjjjjjjjjjjjjjjjjjjjjjjjjfffffffffffffffffffffffffffffffffdddddddddddddddddddddssssssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssdddfjkkkkkkkkkkkkkkkkòlklsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaòaaaaaaaaaaaaaadddddddddddddddddòòfffffffffffffffòòòòòòòòòòòòòòòjjjjjjjjjjjjjòcoooooooooooooooooooooooooooooooooooooooooooooooococcccccccccccccccccccccccccccccccccccccccccvvvvvvvvvvvvvvvvvvvvvvvvvvbbbbbbbbbbbbbbbbbbbbbbbbbnnnnnnmmmmmmmmmmmmmmmmmmmmnnnnnmnmmmmmmmnnnnnnnnmmmmmmmmmmmmmmmmnnnnnnnnnnnnnnnnmmmmmmnnnnnnnnmmmmmmlpireuupoqweituwrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrruuuuuuuuuuuuuoewa't99ijbbbbbbbbbbbpioccccarccccccccccccccccccccei9'acef0a111112222223333334
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/Principi.html#id1
+dopo tanti anni, quindi dall'esperienza la gente ha imparato buone pratiche per la programmazione
+
+modello != programma
+un modello mette a fuoco alcune parti e lascia in background altre
+file:///C:/Users/marko/Desktop/issLab24/iss24Material/docs/builded/html/Principi.html#linguaggi-di-meta-modellazione
+metamodello: per Java sono classi attributi interfacce... ovvero cio che ti permette di scrivere un programma java i guess.quindi il metamodello di java è java.
+in M3 c'è lo spazio concettuale per descrivere qualunque metamodello: QAK. 
+
+
+---------------------------------------------- TEMA FINALE ---------------------------------------------
+come analista analizzo da 3 punti di vista i requisiti e li definisco in termini di QAK:
+
+	struttura
+OProbot
+incenerator
+wastestorage
+ashstorage
+monitoringdevice
+RP
+monitoring device sonar led
+burnin e out
+home
+
+
+	interazione
+inceneritore è un entità che riceve ed emette informazioni in forma di messaggiperche + capace di ricevere messaggi su wifi, e alla fine emette un suono
+ma sono dispatch eventi o request? quando finisce di bruciare visto che è un fischio è iun evento
+input invece da requisito non si puo dire. quindi non sai  per ora.
+
+su sonar e la biliancia si puo dire solo che esistono. (li definiremo all'analisi del problema)
+
+
+	comportamento
+nceneritore ha responsanbilita: lui comincia ad incenerire quando il robot gli porta sulla porta di ingresso qualcosa e finisce dopo un certo temmpo t
+
+a questo punto di co che nel sistema cìè un attore che si chiama INCENERITORE e gli infilo struttura comportamento e interazione. mettere commenti nelle parti che non sai (ad esempio INPUT è un commento perche non sappiamo se è un dispatch event o altro acnora.)
+da requisito ho un informazione che c'è qualcuno sulla porta di ingresso
+da requisito non si capisce se arriva un pallet mentre brucia e cos fare nel caso.
+stati del comportamento dellinceneritore: brucia, aspetta, da un segnale, come capisce che il robot ha portato via la ash? boh non ce scritto. magari il robot lo dice all'inceneritore "ho finito" allora il inceneritore dovra rispondere con "cenere svuotata" e un altro con "RP messo" 
+AREA DI INGRESSO è irrilevante, la bilancia mi da invece il messaggio che abbiamo il pallet e questo è interessante (come manda le info la bilancia questo è problema dell'analista). 
+kjldfajkfadsjkadsfjksfadjkdsfjkadsfkjdsafkjadkjladskjdsfkjdsfkjldsafjkdsafjkdsjkdsfajkadskjsfadjklsfadkjadsfkjsfadjksfdjkadskjadskjldsakjfdjkfadkjfdsjkdsfjkdskjdsfjksfajkladsjkdsajksfdjkadskljdsakjadkjdfkljaskjasjkdsjkkjsajkdsjkasdkljfjkdsajkadjKDSAJKDSAJKAJKDJKDJHSDJHDJAJJDAKJADKJAKJDFAjkdfjdfjdJDFJjkaKJASDhfaksFHSKDfhAlkHaKJHADSfkLJHdasFKLjhadsfkJasfDLJKaSKJSFADjkasHKfdaSJklaSDkFADSjDSKFAjhASKDjkafdsJKSaDSFHADSFhFASjhFadsjhFADSjhFadsjhFadsjhFADSjADSfadsjkLAFSDjhFADSjhFADShjfadsjkfadsJKDFsfhKFhjçaskHLAdsLJHFDJFHJFLAKJFKSLJDHFDSKJFSDJKAHFKJDHASFKDSHFDKJSFKJDFJDSHFKDJSLAFHDSALFAKJSDHFLKFJHFKJASHFKDSFHHDJSKHFSKJFHLKJASDHFLKJASHFALKFJHSALDKFJAHLSKJFHAKLJSFHFDSKLSHFSDFLKJHASDFLKJHAFASLKDJFLKJASFDLòKJASDFLòSKFDJLòKSALKJFòSLDAKFJASòLKFJJLKJFSKDJKDFJKDJDJDkjfsdkfafdsjlkçfjlskdjLòSKDJFòLSKDJFòLKDASJFKLòSDJfçkldsjfçlakdsjfçkldsjfçlkadjsfçlkasjdflskdfjçldasjfçldasjfçlkdsajfçladskjfçlkasdjfçladskjflsçadkfjlskjlksdjflksçdjfçlkasdjfçlsFJAKLòSDFJòLDASJFDASòLFJFADJLFADJKDLJKADSKLJJFADKLJFòFADLFDJLDFDSFòDLFKLKKFADFDKJòSLJòKFSfadjfassdfljdskldfasdfjdskdskjfddfjfdsjçdsljdjlçjdjdfasjçklsdfjklçdasjfçldajkfdsçljfaçlkasdjflkdasjfaçlkjsdçlkfjdASLKFJòADKLFDJòDASLFJKaslçkjflçskdajfAòFDJKLòFDKJFDSAKLJòFADSJKLòFADSKLJòADFSKLJòADFSKLJòFADSKLJòAFDSKLJòADFskljçadsfkljçfadskljçfdaskljçfadskljçadfslkjfadsljçkadsljfçkkjfdkljfadljfçdskljjfçalfljkfadkljffaddsfçkljçaddsljfadslkjçfdkjdsfJ
+
+DARE poche responsaBIlit°°>>°°°°°°°°°°°°°°°°°°>>>>>>>>°°°°°°>°°>°°>°>>°>°>°>°>°°>°>°>°>°°>°°°>°>°°>°°>°°°°>°>°ààààà<ààà<àà<àà<àà<<àà<àà<à<àà<ààà<àà<à<à<àà<ààààZQàXàSàXSàQàZQàZQàQàXQàSXàXàXàà à ààààààà àààààà à à àà à àààà àà  à à à àààà   AL OP robOT
+
+dario.govoni3@studio.unibo.it
+MANDARE ANCHE LE MAIL AL PROF

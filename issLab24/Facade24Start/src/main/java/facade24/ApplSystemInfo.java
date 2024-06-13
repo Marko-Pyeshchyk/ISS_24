@@ -1,4 +1,4 @@
-package main.java.facade24;
+package facade24;
 
 import alice.tuprolog.Prolog;
 import alice.tuprolog.SolveInfo;
