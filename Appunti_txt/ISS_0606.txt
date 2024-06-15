@@ -26,7 +26,7 @@ home
 
 
 	interazione
-inceneritore è un entità che riceve ed emette informazioni in forma di messaggiperche + capace di ricevere messaggi su wifi, e alla fine emette un suono
+inceneritore è un entità che riceve ed emette informazioni in forma di messaggi perche + capace di ricevere messaggi su wifi, e alla fine emette un suono
 ma sono dispatch eventi o request? quando finisce di bruciare visto che è un fischio è iun evento
 input invece da requisito non si puo dire. quindi non sai  per ora.
 
@@ -41,6 +41,7 @@ da requisito ho un informazione che c'è qualcuno sulla porta di ingresso
 da requisito non si capisce se arriva un pallet mentre brucia e cos fare nel caso.
 stati del comportamento dellinceneritore: brucia, aspetta, da un segnale, come capisce che il robot ha portato via la ash? boh non ce scritto. magari il robot lo dice all'inceneritore "ho finito" allora il inceneritore dovra rispondere con "cenere svuotata" e un altro con "RP messo" 
 AREA DI INGRESSO è irrilevante, la bilancia mi da invece il messaggio che abbiamo il pallet e questo è interessante (come manda le info la bilancia questo è problema dell'analista). 
+
 kjldfajkfadsjkadsfjksfadjkdsfjkadsfkjdsafkjadkjladskjdsfkjdsfkjldsafjkdsafjkdsjkdsfajkadskjsfadjklsfadkjadsfkjsfadjksfdjkadskjadskjldsakjfdjkfadkjfdsjkdsfjkdskjdsfjksfajkladsjkdsajksfdjkadskljdsakjadkjdfkljaskjasjkdsjkkjsajkdsjkasdkljfjkdsajkadjKDSAJKDSAJKAJKDJKDJHSDJHDJAJJDAKJADKJAKJDFAjkdfjdfjdJDFJjkaKJASDhfaksFHSKDfhAlkHaKJHADSfkLJHdasFKLjhadsfkJasfDLJKaSKJSFADjkasHKfdaSJklaSDkFADSjDSKFAjhASKDjkafdsJKSaDSFHADSFhFASjhFadsjhFADSjhFadsjhFadsjhFADSjADSfadsjkLAFSDjhFADSjhFADShjfadsjkfadsJKDFsfhKFhjçaskHLAdsLJHFDJFHJFLAKJFKSLJDHFDSKJFSDJKAHFKJDHASFKDSHFDKJSFKJDFJDSHFKDJSLAFHDSALFAKJSDHFLKFJHFKJASHFKDSFHHDJSKHFSKJFHLKJASDHFLKJASHFALKFJHSALDKFJAHLSKJFHAKLJSFHFDSKLSHFSDFLKJHASDFLKJHAFASLKDJFLKJASFDLòKJASDFLòSKFDJLòKSALKJFòSLDAKFJASòLKFJJLKJFSKDJKDFJKDJDJDkjfsdkfafdsjlkçfjlskdjLòSKDJFòLSKDJFòLKDASJFKLòSDJfçkldsjfçlakdsjfçkldsjfçlkadjsfçlkasjdflskdfjçldasjfçldasjfçlkdsajfçladskjfçlkasdjfçladskjflsçadkfjlskjlksdjflksçdjfçlkasdjfçlsFJAKLòSDFJòLDASJFDASòLFJFADJLFADJKDLJKADSKLJJFADKLJFòFADLFDJLDFDSFòDLFKLKKFADFDKJòSLJòKFSfadjfassdfljdskldfasdfjdskdskjfddfjfdsjçdsljdjlçjdjdfasjçklsdfjklçdasjfçldajkfdsçljfaçlkasdjflkdasjfaçlkjsdçlkfjdASLKFJòADKLFDJòDASLFJKaslçkjflçskdajfAòFDJKLòFDKJFDSAKLJòFADSJKLòFADSKLJòADFSKLJòADFSKLJòFADSKLJòAFDSKLJòADFskljçadsfkljçfadskljçfdaskljçfadskljçadfslkjfadsljçkadsljfçkkjfdkljfadljfçdskljjfçalfljkfadkljffaddsfçkljçaddsljfadslkjçfdkjdsfJ
 
 DARE poche responsaBIlit°°>>°°°°°°°°°°°°°°°°°°>>>>>>>>°°°°°°>°°>°°>°>>°>°>°>°>°°>°>°>°>°°>°°°>°>°°>°°>°°°°>°>°ààààà<ààà<àà<àà<àà<<àà<àà<à<àà<ààà<àà<à<à<àà<ààààZQàXàSàXSàQàZQàZQàQàXQàSXàXàXàà à ààààààà àààààà à à àà à àààà àà  à à à àààà   AL OP robOT

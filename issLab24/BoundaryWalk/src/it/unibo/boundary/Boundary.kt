@@ -25,14 +25,14 @@ class Boundary ( name: String, scope: CoroutineScope, isconfined: Boolean=false 
 				var A = "" 
 				var N:Int = 0	
 				var Perimeter:Int = 0
-				var STEP:Int = 100
+				var STEP:Int = 330
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
 						subscribeToLocalActor("basicrobot") 
 						CommUtils.outyellow("$name START")
 						delay(2000) 
-						request("engage", "engage(boundary,330)" ,"basicrobot" )  
+						request("engage", "engage(boundary,$STEP)" ,"basicrobot" )  
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
@@ -97,8 +97,8 @@ class Boundary ( name: String, scope: CoroutineScope, isconfined: Boolean=false 
 				state("handle_sonar") { //this:State
 					action { //it:State
 						request("step", "step($STEP)" ,"basicrobot" )  
-						 Perimeter += STEP  
 						CommUtils.outyellow("WAITING ON SONAR")
+						delay(1500) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
