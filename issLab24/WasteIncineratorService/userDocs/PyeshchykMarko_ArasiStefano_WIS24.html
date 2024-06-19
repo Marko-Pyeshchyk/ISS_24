@@ -249,14 +249,18 @@ div.imagedesc{
 </div>
 
  
-
 <h2>Requirement analysis</h2>
 <div class="remark">
 	<h3>WIS  (Attore)</h3>
 	Service Area: Spazio rettangolare piano su cui sono posizionate tutte le entità, tra cui Incenerator e ostacoli.
 
 	<br><br>WASTEIN port: porta sul muro perimetrale in basso sul lato sinistro, punto di accesso del WasteStorage
-	<br><br>WasteStorage  (Attore): container di RP, deve essere in grado di inviare informazioni riguardanti il suo stato (vuoto o non vuoto). Queste devono essere acessibili al robot e alla GUI. non è stato definito un metodo di comunicazione.
+	<br><br>WasteStorage  (Attore): container di RP, deve essere in grado di inviare informazioni riguardanti il suo stato.
+	Queste devono essere acessibili alla GUI. 
+	<br>
+	Per il sistema, invece, è necessario sapere il peso degli RP per capire quando rendere operativo il OpRobot.
+	<br>
+	Per tale scopo WasteStorage deve utilizzare la bilancia e non è stato definito un metodo di comunicazione.
 
 	<br><br>HOME: Punto di partenza del robot, angolo in alto a sinistra della Service Area, Il robot deve ritornare in questa posizione mentre non sta eseguendo compiti
 	<br><br>ASHOUT port: porta sul muro perimetrale in basso sul lato destro, punto di accesso del AshStorage
@@ -264,17 +268,18 @@ div.imagedesc{
 
 	<br><br><h3>MonitoringDevice (Attore)</h3> Composto da un RaspberryPi, un Sonar e un Led e li gestisce. Riceve eventi e messaggi dal sistema.
 	<br><br> Sonar (Attore) si occupa della misurazione della distanza tra se stesso e la pila di cenere nell'AshStorage.
-	Deve essere in grado di inviare informazioni riguardanti il suo stato (pieno o vuoto) alla GUI e al sistema. Non è stato definito un metodo di comunicazione.
+	Deve essere in grado di inviare informazioni riguardanti il suo stato alla GUI e al sistema. Non è stato definito un metodo di comunicazione.
 	<br><br>Il Led (Attore) deve accendersi/spegnersi o lampeggiare in base allo stato del sistema.
 
 	
 
 	<br><br><h3>Incinerator  (Attore)</h3>
 	Luogo fisico definito nella Service Area, a sinistra ha la porta BURNIN e di sotto BURNOUT. <br><br>
-	Event burn_end:burn_end(N) viene comunicato dal Incinerator alla fine dell'incenerimento.
-	Non è definito il metodo di comunicazione di "activation command" per far partire l'Incinerator.  L'Incinerator non deve bruciare RP se non è stato attivato.<br><br>
- 	Per caricare un nuovo pallet la cenere deve essere svuotata. Non è definito il modo con cui l'inceneritore riceva l'informazione che la cenere è stata svuotata.
-
+	<code>Event burn_end:burn_end(N)</code> viene comunicato dal Incinerator alla fine dell'incenerimento.
+	Non è definito il metodo di comunicazione di "activation command" per far partire l'Incinerator.	L'Incinerator non deve bruciare RP se non è stato attivato. <br><br>
+	
+ 	Per caricare un nuovo RP la cenere deve essere svuotata. Non è definito il modo con cui l'inceneritore riceva l'informazione che la cenere è stata svuotata.
+	
 	<br><br><h3>OpRobot (Attore)</h3>
 	 Sappiamo che il OpRobot è un <a href="https://www.youtube.com/watch?v=aE7RQNhwnPQ">DDR robot</a> 
 	 quindi si puo sfruttare il <a href="./html//BasicRobot24.html">BasicRobot24</a> per interfacciarsi, 

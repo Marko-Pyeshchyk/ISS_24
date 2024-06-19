@@ -253,11 +253,15 @@ div.imagedesc{
 <h2>Requirement analysis</h2>
 <div class="remark">
 	<h3>WIS  (Attore)</h3>
-	
 	Service Area: Spazio rettangolare piano su cui sono posizionate tutte le entità, tra cui Incenerator e ostacoli.
 
 	<br><br>WASTEIN port: porta sul muro perimetrale in basso sul lato sinistro, punto di accesso del WasteStorage
-	<br><br>WasteStorage  (Attore): container di RP, deve essere in grado di inviare informazioni riguardanti il suo stato (vuoto o non vuoto). Queste devono essere acessibili al robot e alla GUI. non è stato definito un metodo di comunicazione.
+	<br><br>WasteStorage  (Attore): container di RP, deve essere in grado di inviare informazioni riguardanti il suo stato.
+	Queste devono essere acessibili alla GUI. 
+	<br>
+	Per il sistema, invece, è necessario sapere il peso degli RP per capire quando rendere operativo il OpRobot.
+	<br>
+	Per tale scopo WasteStorage deve utilizzare la bilancia e non è stato definito un metodo di comunicazione.
 
 	<br><br>HOME: Punto di partenza del robot, angolo in alto a sinistra della Service Area, Il robot deve ritornare in questa posizione mentre non sta eseguendo compiti
 	<br><br>ASHOUT port: porta sul muro perimetrale in basso sul lato destro, punto di accesso del AshStorage
@@ -265,17 +269,17 @@ div.imagedesc{
 
 	<br><br><h3>MonitoringDevice (Attore)</h3> Composto da un RaspberryPi, un Sonar e un Led e li gestisce. Riceve eventi e messaggi dal sistema.
 	<br><br> Sonar (Attore) si occupa della misurazione della distanza tra se stesso e la pila di cenere nell'AshStorage.
-	Deve essere in grado di inviare informazioni riguardanti il suo stato (pieno o vuoto) alla GUI e al sistema. Non è stato definito un metodo di comunicazione.
+	Deve essere in grado di inviare informazioni riguardanti il suo stato alla GUI e al sistema. Non è stato definito un metodo di comunicazione.
 	<br><br>Il Led (Attore) deve accendersi/spegnersi o lampeggiare in base allo stato del sistema.
 
 	
 
 	<br><br><h3>Incinerator  (Attore)</h3>
 	Luogo fisico definito nella Service Area, a sinistra ha la porta BURNIN e di sotto BURNOUT. <br><br>
-	Event burn_end:burn_end(N) viene comunicato dal Incinerator alla fine dell'incenerimento.
+	<code>Event burn_end:burn_end(N)</code> viene comunicato dal Incinerator alla fine dell'incenerimento.
 	Non è definito il metodo di comunicazione di "activation command" per far partire l'Incinerator.	L'Incinerator non deve bruciare RP se non è stato attivato. <br><br>
 	
- 	Per caricare un nuovo pallet la cenere deve essere svuotata. Non è definito il modo con cui l'inceneritore riceva l'informazione che la cenere è stata svuotata.
+ 	Per caricare un nuovo RP la cenere deve essere svuotata. Non è definito il modo con cui l'inceneritore riceva l'informazione che la cenere è stata svuotata.
 	
 	<br><br><h3>OpRobot (Attore)</h3>
 	 Sappiamo che il OpRobot è un <a href="https://www.youtube.com/watch?v=aE7RQNhwnPQ">DDR robot</a> 
@@ -308,46 +312,51 @@ div.imagedesc{
 
 <h2>Problem analysis</h2>
 <div class="remark">
+	GOAL: Incinerator. <br><br>
 	<h3>Incinerator</h3>
 	Per l'attivazione dell'Incinerator serve un segnale (wifi, blootooth) dall'esterno. 
-	L'attore deve essere in grado di gestire questo messaggio ed attivarsi. Prima del messaggio non deve accettare RP.
-	Bisogna anche definire chi manda questo segnale: <h4>un attore esterno al sistema(alieno) o GUI o WIS.</h4>
-	Il messaggio puo essere modellato come un dispatch: activation_command:activation_command(N).
+	Il segnale viene inviato da un attore esterno al sistema. <br>
+	Il messaggio verrà modellato come <code>Dispatch activation_command:activation_command(N)</code>
 	<br><br>
-
-	<br><br>
-	L'Incinerator deve ricevere un segnale quando il robot mettere RP nella porta BURNIN per iniziare a bruciare.
-	Il segnale puo essere inviato dal OpRobot o dal WIS. <br>
-	Farlo fare al OpRobot genererebbe meno traffico ma gli aggiunge una responsabilità andando così contro il SRP.
+	L'Incinerator deve ricevere un segnale quando il robot mette il RP nella porta BURNIN per iniziare a bruciare.
+	Il segnale puo essere inviato dal OpRobot o dal WIS (che funge da coordiantore del sistema). <br>
+	Dare questa responsabilità al OpRobot genererebbe meno traffico ma andrebbe contro il SRP.
 	Quindi è meglio dare la responsabilità al WIS in quanto coordinatore del sistema.
-	<br>messaggio: burn_start:burn_start(N)
+	<br>Il messaggio verrà modellato come <code>Dispatch burn_start:burn_start(N)</code>
 	<br><br>
-	Bisogna far in modo che l'Incinerator accetti un nuovo RP se e solo se la cenere è stata pulita.
-	Sia OpRobot che WIS possono comunicargli tale informazione.
-	Per lo stesso ragionamento di prima è piu corretto scegliere WIS. 
-	<br>messaggio: ash_taken:ash_taken(N)
-
-	<br><br><br>
-	<h3>WIS(coordinatore)</h3>
-	Coordinatore generale del sistema. <br><br>
-	Attore centrale del sistema che comunica con tutti e la GUI.
-
+	Bisogna far in modo che l'Incinerator accetti un nuovo RP se e solo se la cenere è stata tolta.
+	Sia OpRobot che WIS potrebbero comunicargli tale informazione.
+	Per lo stesso ragionamento fatto precedentemente la responsabilità viene data a WIS. 
+	<br>Il messaggio verrà modellato come <code>Dispatch ash_taken:ash_taken(N)</code> 
+	<br><br>
 	<h3>Architettura logica</h3>
-	<img src="../wis24arch.png">
+	<img src="../wis24arch_architettura_logica.png">
 </div>
 
 <h2>Test plans</h2> 
 <div class="remark"> 
+	Verificare che unon accetti un RP prima di essere stato attivato.
+	<br>
+	Verificare che una volta messo un RP a bruciare il Incinerator non ne accetti un'altro.
+	<br>
+	Verificare che non accetti un nuovo RP se la cenere non è stata tolta.
+	
 </div>
 
 <h2>Project</h2> 
 <div class="remark">
-
+	<a href="../src/TemaFinale24.qak">Progetto</a><br>
+	<br>
+	Incinerator è un attore con una variabile BTIME per definire il tempo di bruciatura.
+	Aspetta il comando di attivazione per partire. 
+	Attraverso il PingPong tra i stati ready e burning gestisce il RP uno alla volta.
+	<br><br>
+	Gli altri attori sono dei mock che servono per simulare le funzionalità delle componenti con cui Incinerator comunica.
 </div>
 
 <h2>Testing</h2> 
 <div class="remark">
-
+	
 </div>
 
 <h2>Deployment</h2> 

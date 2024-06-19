@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <!--
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"crossorigin="anonymous"></script> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/templateISS.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/main.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/navbar.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/table.css">
+        <link rel="stylesheet" type="text/css" href="./commons/resources/styles/code.css">
+        <!-- <script type="text/javascript" src="./commons/resources/scripts/myScripts.js"></script> -->
+<style type="text/css">
+body
+{
+    margin-left:  30px;
+    margin-right: 30px;
+};
+
+P
+{
+    font-family: Tahoma;
+    font-size: 10pt;
+};
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+	font-size: 93%;
+}
+
+a:hover {
+    background-color: #cccccc;
+}
+
+
+hr {
+    clear: both;
+    height: 1px;
+    color: #242424;
+    background-color: transparent;
+}
+
+h1, h2, h3 {
+    color: #242424;
+    clear: left;
+    font: 100% Tahoma, Helvetica, Arial, sans-serif;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+top {
+	width: 100%;
+}
+
+
+#i {
+    color: #ff1010;
+}
+tt{
+	font-family: "Arial";
+    font-size: 90%;
+	color: #006600;
+}
+em{
+	font-family: "Arial";
+    font-size: 80%;
+	font-weight: bold;
+	border-style:solid;
+	border-color: #abe876;
+    color: #1632cc;
+}
+bc{
+	font-family: "Arial";
+	font-size: 90%;
+	font-weight: bold;
+    color: #990000;
+	background-color: #fcf8c7;
+}
+ks{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #0000CD	;
+	font-size: 90%;
+}
+kc{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #008000	;
+	font-size: 90%;
+}
+pre{
+	font-family: "Consolas";
+	font-size: 85%;
+	background-color: #f5f5f5;
+	border: 1.5px solid silver;
+	padding: 5px;
+}
+m{
+	font-family: "Helvetica";
+	line-height: 100%;
+ 	font-size: 75%;
+}
+div.body{
+	 
+    font-size: 18px;
+}
+k{
+    color: #990000;
+	font-weight: bold;
+	font-size: 90%;
+}
+h1 {
+    font-size: 150%;
+    background-color: #b2c0ff;
+	padding: 10px;
+}
+
+h2 {
+    background-color: #9ed8ff;
+    font-size: 130%;
+}
+
+h3 {
+	background-color: #e6ccff;
+    font-size: 100%;
+}
+h4 {
+    background-color: #ccffcc;
+    font-size: 100%;
+	width: 95%;
+	border-radius: 5px;
+	padding: 2px;
+}
+h5 {
+    background-color: #d5ffb0;
+    font-size: 100%;
+
+}
+div.req{
+	background-color: #d9ffb3;
+    font-size: 18px;
+	width: 700px;
+    border: 3px solid green;
+    padding: 15px;
+    margin: 10px;
+}
+div.remark{
+	background-color: #E3F2FD;
+    border: 1.5px solid #d5f2ed;
+    padding: 15px;
+    margin: 10px;
+	border-radius: 25px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+ol, ul, li {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+img {
+	border: 1.5px solid #d5f2ed
+
+}
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+}
+
+div.wrapdesc{
+	width: 90%;
+	margin: auto;
+}
+
+div.imagedesc{
+	width: 85%;
+	margin: auto;
+}
+</style>
+    
+ 
+   
+</head>
+	
+		
+  
+
+
+   
+<title>WIS</title></head>
+    
+<!--
+	<body onload="loadNav();">
+		<div id="openButton" class="openButton" onclick="openNav(true)">&#9776; Menu</div>
+		<div id="sidenav" class="sidenav">
+			<a class="closeButton" href="javascript:void(0)" onclick="closeNav(true)">&times;</a>
+			<a href=".README.html">ReadMe</a>
+			<a class="sprint" href="../../../Sprint0/Codice/userDocs/Cold%20Storage%20Service%20-%20Natali%20V3.html">Sprint0</a>
+			<a class="sprint" href="../../../Sprint1.0/Codice/userDocs/Sprint%201.0%20-%20V3.html">Sprint1.0</a>
+			<a class="sprint" href="../../../Sprint1.1/Codice/userDocs/Sprint%201.1%20-%20V3.html">Sprint1.1</a>
+			<a id="currentSprint" class="sprint" href="#">&#8211;&#8212; Sprint2 &#8212;&#8211;</a>
+			<div class="sidenavSection">
+				<a href="#Goal Sprint 2">Goal Sprint 2</a>
+				<a href="#Requisiti">Requisiti</a>
+				<a href="#Analisi dei Requisiti">Analisi dei Requisiti</a>
+				<a href="#Analisi del Problema">Analisi del Problema</a>
+				<a href="#Test Plan">Test Plan</a>
+				<a href="#Progettazione">Progettazione</a>
+				<a href="#Deployment">Deployment</a>
+			</div>
+			<p class="separator">&mdash;&mdash;&mdash;&ndash;&ndash;&mdash;&mdash;&mdash;</p>
+			<a class="sprint" href="../../../Sprint3/Codice/userDoc/Sprint%203.html">Sprint3</a>
+			<bottom-spacer/>
+		</div>
+-->
+<body>
+<div id="top">
+<h1>WIS<font size="5"></font> </h1>
+</div>  
+
+<div class="body"> 
+<h2>Introduction</h2>
+<div class="remark">
+	Tema finale 2024: costuire il sistema software WasteIncineratorService.
+</div>
+ 
+<h2>Requirements</h2>
+<div class="remark">
+	<a href="./html/TemaFinale24.html">Requisiti</a> 
+</div>
+
+ 
+<h2>Requirement analysis</h2>
+<div class="remark">
+	<h3>WIS  (Attore)</h3>
+	Service Area: Spazio rettangolare piano su cui sono posizionate tutte le entità, tra cui Incenerator e ostacoli.
+
+	<br><br>WASTEIN port: porta sul muro perimetrale in basso sul lato sinistro, punto di accesso del WasteStorage
+	<br><br>WasteStorage  (Attore): container di RP, deve essere in grado di inviare informazioni riguardanti il suo stato.
+	Queste devono essere acessibili alla GUI. 
+	<br>
+	Per il sistema, invece, è necessario sapere il peso degli RP per capire quando rendere operativo il OpRobot.
+	<br>
+	Per tale scopo WasteStorage deve utilizzare la bilancia e non è stato definito un metodo di comunicazione.
+
+	<br><br>HOME: Punto di partenza del robot, angolo in alto a sinistra della Service Area, Il robot deve ritornare in questa posizione mentre non sta eseguendo compiti
+	<br><br>ASHOUT port: porta sul muro perimetrale in basso sul lato destro, punto di accesso del AshStorage
+	
+
+	<br><br><h3>MonitoringDevice (Attore)</h3> Composto da un RaspberryPi, un Sonar e un Led e li gestisce. Riceve eventi e messaggi dal sistema.
+	<br><br> Sonar (Attore) si occupa della misurazione della distanza tra se stesso e la pila di cenere nell'AshStorage.
+	Deve essere in grado di inviare informazioni riguardanti il suo stato alla GUI e al sistema. Non è stato definito un metodo di comunicazione.
+	<br><br>Il Led (Attore) deve accendersi/spegnersi o lampeggiare in base allo stato del sistema.
+
+	
+
+	<br><br><h3>Incinerator  (Attore)</h3>
+	Luogo fisico definito nella Service Area, a sinistra ha la porta BURNIN e di sotto BURNOUT. <br><br>
+	<code>Event burn_end:burn_end(N)</code> viene comunicato dal Incinerator alla fine dell'incenerimento.
+	Non è definito il metodo di comunicazione di "activation command" per far partire l'Incinerator.	L'Incinerator non deve bruciare RP se non è stato attivato. <br><br>
+	
+ 	Per caricare un nuovo RP la cenere deve essere svuotata. Non è definito il modo con cui l'inceneritore riceva l'informazione che la cenere è stata svuotata.
+	
+	<br><br><h3>OpRobot (Attore)</h3>
+	 Sappiamo che il OpRobot è un <a href="https://www.youtube.com/watch?v=aE7RQNhwnPQ">DDR robot</a> 
+	 quindi si puo sfruttare il <a href="./html//BasicRobot24.html">BasicRobot24</a> per interfacciarsi, 
+	 rendendolo uno degli attori principali del sistema.
+ 
+	 <br><br>
+	 Deve ricevere informazioni riguardanti WasteStorage, AshStorage e Incinerator per capire quando essere operativo.
+	 Al momento non è possibile definire la tipologia dei messaggi.
+ 
+	 <br><br>
+	 Ha la responsabilità di portare un RP per volta alla porta BURNIN.
+	 Il robot deve aspettare in HOME e dare priorità a svuotare la cenere dal Incinerator rispetto a gestire un nuovo RP.
+	 Deve recarsi quindi alla porta BURNOUT dopo aver ricevuto l'evento dall'inceneritore (burn_end).
+
+	 <br><br><h3>Agenti esterni</h3>
+	 Lo sviluppo degli agenti esterni per rifornire e svuotare la WasteStorage e AshStorage non sono dei requisiti.
+
+	 <br><br><h3>Modello dei requisiti</h3>
+	 <img src="../wis24arch_modello_requisiti.png">
+
+	 <br><br><h3>Priorità dei requisiti</h3>
+	 <li>Incenerator</li>
+	 <li>MonitoringDevice</li>
+	 <li>WasteStorage</li>
+	 <li>WIS</li>
+	 <li>OpRobot</li>
+	 <li>GUI</li>
+</div>
+
+<h2>Problem analysis</h2>
+<div class="remark">
+	Partendo dallo <a href="../../WasteIncineratorService_1/userDocs/PyeshchykMarko_ArasiStefano_WIS24.html">SPRINT precedente</a>
+	<br>GOAL: WasteStorage
+	<br><br>
+	<h3>WasteStorage</h3>
+	Ha la responsabilità di comunicare il quantitativo di RP presenti, quindi il loro peso:
+	<code>Dispatch weight:weight(N)</code><br>
+	Questa informazione è utile per capire se il OpRobot deve essere operativo.
+	Per il principio di responsabilità minima l'informazione deve essere comunicata al coordinatore, ovvero WIS. 
+	<br><br>
+	WasteStorage ha bisogno di interfacciarsi con la bilancia.
+	<br>
+	La bilancia viene considerata come una fonte di informazioni autonoma, e non fornisce alcun modo predefinito per acquisire tale informazione.
+	Per conoscere il valolre della bilancia è meglio progettare un attore che, attraverso l'inversione delle dipendenze, fornisce l'interfaccia da cui la bilancia deve adattarsi.
+	In questo modo l'applicazione è anche technology indipendent.
+	<br>
+	Per questo motivo viene introdotto l'attore scale_deveice. Questo manda un evento a WasteStorage con il peso rilevato e filtrato, ovvero cambiamenti superiori ad una certa soglia WEIGHT_FILTER.
+	Questo per un motivo di traffico in modo da mandare il peso aggiornato solamente quando viene aggiunto o tolto un RP.
+	<br><br>
+	
+
+
+	<h3>Architettura logica</h3>
+	<img src="../wis24arch.png">
+</div>
+
+<h2>Test plans</h2> 
+<div class="remark"> 
+	
+	Verificare che, quando viene tolto un RP dal OpRobot, WIS venga notificato correttamente.
+</div>
+
+<h2>Project</h2> 
+<div class="remark">
+	
+</div>
+
+<h2>Testing</h2> 
+<div class="remark">
+
+</div>
+
+<h2>Deployment</h2> 
+
+ 
+<h2>Maintenance</h2> 
+ 
+<!-- USEFUL
+<table style="width:100%" border="1">
+<tr>
+<td style="width:50%">
+</td>
+<td></td>
+</tr>
+</table>
+-->
+	      	
+<br/><br/> 	
+</div>  
+
+<div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
+    By Marko P'yeshchyk, mat: 0001103132, email: marko.pyeshchyk@studio.unibo.it, 
+	And Arasi Stefano, mat: 0001103134, email: arasi.stefano@studio.unibo.it
+<img src="../img/marko.jpg" alt="mbot" width="15%" height="15%">
+GIT repo: <a href="https://github.com/Marko-Pyeshchyk/ISS_24.git">https://github.com/Marko-Pyeshchyk/ISS_24.git</a>
+</div>
+</body>
+</html>

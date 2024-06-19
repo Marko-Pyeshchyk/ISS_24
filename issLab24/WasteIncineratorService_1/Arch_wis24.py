@@ -28,6 +28,7 @@ with Diagram('wis24Arch', show=False, outformat='png', graph_attr=graphattr) as 
      with Cluster('ctxwis', graph_attr=nodeattr):
           incinerator=Custom('incinerator','./qakicons/symActorSmall.png')
           wis_mock=Custom('wis_mock','./qakicons/symActorSmall.png')
+     with Cluster('ctxext', graph_attr=nodeattr):
           activator_mock=Custom('activator_mock','./qakicons/symActorSmall.png')
      incinerator >> Edge( label='burn_end', **eventedgeattr, decorate='true', fontcolor='red') >> sys
      incinerator >> Edge( label='burn_end', **eventedgeattr, decorate='true', fontcolor='red') >> wis_mock
