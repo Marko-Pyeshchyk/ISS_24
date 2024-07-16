@@ -11,7 +11,7 @@ public class MqttJavaPublisher {
 	private String topic  = "unibodisiplan";	
 	private String brokerAddr="wss://test.mosquitto.org:8081"; 
 	private MqttClient client;
-	private String sonarevent = "msg(sonardata,event,markoclient,none,sonardata(D),0)";
+	private String sonarevent = "msg(sonardata,event,javaclient,none,sonardata(D),0)";
 	
 	public MqttJavaPublisher() {
 		
@@ -26,7 +26,7 @@ public class MqttJavaPublisher {
   			for( int i=1; i<4; i++) {
   				String msg = sonarevent.replace("D",(""+i*10) );
 	  			sendMessageMqtt(msg);
-	  			CommUtils.delay(2000);
+	  			CommUtils.delay(4000);
   			}
   			System.exit(0);
         }catch(Exception e){

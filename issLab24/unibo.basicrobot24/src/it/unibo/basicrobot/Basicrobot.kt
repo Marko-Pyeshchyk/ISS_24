@@ -47,9 +47,10 @@ class Basicrobot ( name: String, scope: CoroutineScope, isconfined: Boolean=fals
 						delegate("setrobotstate", "robotpos") 
 						delegate("moverobot", "robotpos") 
 						delegate("setdirection", "robotpos") 
+						delegate("getenvmap", "robotpos") 
+						subscribeToLocalActor("basicrobot") 
 						 robot.create(myself,"basicrobotConfig.json")  
 						 RobotType = robot.robotKind  
-						CommUtils.outmagenta("basicrobot | CREATED  (and connected to mosquitto) ... ")
 						robot.move( "h"  )
 						delay(300) 
 						robot.move( "a"  )
@@ -84,6 +85,23 @@ class Basicrobot ( name: String, scope: CoroutineScope, isconfined: Boolean=fals
 					 transition(edgeName="t03",targetState="doStep",cond=whenRequest("step"))
 					transition(edgeName="t04",targetState="execcmd",cond=whenDispatch("cmd"))
 					transition(edgeName="t05",targetState="endwork",cond=whenDispatch("end"))
+					transition(edgeName="t06",targetState="handlesonardata",cond=whenEvent("sonardata"))
+				}	 
+				state("handlesonardata") { //this:State
+					action { //it:State
+						CommUtils.outyellow("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
+						 	   
+						if( checkMsgContent( Term.createTerm("sonar(DISTANCE)"), Term.createTerm("sonar(D)"), 
+						                        currentMsg.msgContent()) ) { //set msgArgList
+								updateResourceRep( "sonar(${payloadArg(0)})"  
+								)
+						}
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition( edgeName="goto",targetState="work", cond=doswitch() )
 				}	 
 				state("execcmd") { //this:State
 					action { //it:State

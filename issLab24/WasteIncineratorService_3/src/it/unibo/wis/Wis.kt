@@ -24,7 +24,11 @@ class Wis ( name: String, scope: CoroutineScope, isconfined: Boolean=false  ) : 
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
-						subscribeToLocalActor("incinerator") 
+						CommUtils.outblue("START wis")
+						delay(1000) 
+						forward("burn_end", "burn_end(X)" ,"monitoring_device" ) 
+						delay(1000) 
+						forward("burn_start", "burn_start(X)" ,"monitoring_device" ) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002

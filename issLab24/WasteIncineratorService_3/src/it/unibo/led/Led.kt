@@ -24,11 +24,51 @@ class Led ( name: String, scope: CoroutineScope, isconfined: Boolean=false  ) : 
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
+						CommUtils.outmagenta("START led")
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
+					 transition(edgeName="t019",targetState="handleOn",cond=whenDispatch("led_on"))
+					transition(edgeName="t020",targetState="handleOff",cond=whenDispatch("led_off"))
+					transition(edgeName="t021",targetState="handleFlashing",cond=whenDispatch("led_flashing"))
+				}	 
+				state("handleOn") { //this:State
+					action { //it:State
+						CommUtils.outmagenta("LED ON")
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition(edgeName="t022",targetState="handleOn",cond=whenDispatch("led_on"))
+					transition(edgeName="t023",targetState="handleOff",cond=whenDispatch("led_off"))
+					transition(edgeName="t024",targetState="handleFlashing",cond=whenDispatch("led_flashing"))
+				}	 
+				state("handleOff") { //this:State
+					action { //it:State
+						CommUtils.outmagenta("LED OFF")
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition(edgeName="t025",targetState="handleOn",cond=whenDispatch("led_on"))
+					transition(edgeName="t026",targetState="handleOff",cond=whenDispatch("led_off"))
+					transition(edgeName="t027",targetState="handleFlashing",cond=whenDispatch("led_flashing"))
+				}	 
+				state("handleFlashing") { //this:State
+					action { //it:State
+						CommUtils.outmagenta("LED FLASHING")
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition(edgeName="t028",targetState="handleOn",cond=whenDispatch("led_on"))
+					transition(edgeName="t029",targetState="handleOff",cond=whenDispatch("led_off"))
+					transition(edgeName="t030",targetState="handleFlashing",cond=whenDispatch("led_flashing"))
 				}	 
 			}
 		}

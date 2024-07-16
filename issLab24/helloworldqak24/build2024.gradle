@@ -147,7 +147,7 @@ eclipse {
 
 application {
     //Define the main class for the application.
-    mainClass    = 'it.unibo.ctxhello.MainCtxhelloKt'
+    mainClassName    = 'it.unibo.ctxhello.MainCtxhelloKt'
 }
  
  jar {
@@ -164,15 +164,15 @@ application {
 }
 
 task dovesiamo {
-    println("projectDir= $projectDir") //C:\Didattica2024\issLab24\service24
-    println("buildDir  = $buildDir")   //C:\Didattica2024\issLab24\service24\build
+    println("projectDir= $projectDir")  
+    println("buildDir  = $buildDir")    
 }
 
 distributions {
     main {
-        distributionBaseName = 'helloworld0'
+        distributionBaseName = 'helloworld3'
         contents { 
-             from './helloworld0.pl'
+             from './helloworld3.pl'
              from './sysRules.pl'
              from './facadeConfig.json'
         }

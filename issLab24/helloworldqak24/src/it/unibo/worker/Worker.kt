@@ -24,8 +24,9 @@ class Worker ( name: String, scope: CoroutineScope, isconfined: Boolean=false  )
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
+						delay(1500) 
 						CommUtils.outmagenta("Hello world")
-						 CommUtils.outblue("Hello world again")  
+						forward("out", "out(hello_again)" ,"display" ) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002

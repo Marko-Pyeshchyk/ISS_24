@@ -24,23 +24,30 @@ class Nor ( name: String, scope: CoroutineScope, isconfined: Boolean=false  ) : 
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
+						CommUtils.outgreen("-----------------------------------------------------------------")
 						CommUtils.outgreen("$name START")
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t00",targetState="handle_input",cond=whenDispatch("input"))
+					 transition(edgeName="t00",targetState="handle_in",cond=whenDispatch("in"))
 				}	 
-				state("handle_input") { //this:State
+				state("handle_in") { //this:State
 					action { //it:State
-						if( checkMsgContent( Term.createTerm("input(X,Y)"), Term.createTerm("input(X,Y)"), 
+						if( checkMsgContent( Term.createTerm("in(X,Y)"), Term.createTerm("in(X,Y)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
 								 
-												val x = payloadArg(0)
-												val y = payloadArg(1)
+												val x = payloadArg(0).toInt()
+												val y = payloadArg(1).toInt()
 								CommUtils.outgreen("x = $x")
 								CommUtils.outgreen("y = $y")
+								if(  x+y == 0  
+								 ){forward("out", "out(1)" ,"mock_user" ) 
+								}
+								else
+								 {forward("out", "out(0)" ,"mock_user" ) 
+								 }
 						}
 						//genTimer( actor, state )
 					}

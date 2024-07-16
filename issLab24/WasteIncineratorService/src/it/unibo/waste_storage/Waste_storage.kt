@@ -24,6 +24,7 @@ class Waste_storage ( name: String, scope: CoroutineScope, isconfined: Boolean=f
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
+						forward("weight", "weight(N)" ,"wis" ) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002

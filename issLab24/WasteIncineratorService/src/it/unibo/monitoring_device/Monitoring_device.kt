@@ -24,6 +24,7 @@ class Monitoring_device ( name: String, scope: CoroutineScope, isconfined: Boole
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
+						forward("sonar_value", "sonar_value(N)" ,"wis" ) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002

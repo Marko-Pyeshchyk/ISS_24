@@ -26,6 +26,10 @@ class Wis_mock ( name: String, scope: CoroutineScope, isconfined: Boolean=false 
 					action { //it:State
 						CommUtils.outgreen("$name		START")
 						subscribeToLocalActor("incinerator") 
+						delay(1000) 
+						forward("burn_end", "burn_end(X)" ,"monitoring_device" ) 
+						delay(1000) 
+						forward("burn_start", "burn_start(X)" ,"monitoring_device" ) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002

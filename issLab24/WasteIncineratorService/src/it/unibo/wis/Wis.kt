@@ -25,6 +25,7 @@ class Wis ( name: String, scope: CoroutineScope, isconfined: Boolean=false  ) : 
 				state("s0") { //this:State
 					action { //it:State
 						subscribeToLocalActor("incinerator") 
+						forward("robot_move", "robot_move(ACTION)" ,"op_robot" ) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002

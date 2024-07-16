@@ -22,7 +22,8 @@ tra me e il basicrobot c'è un broker. il faccio sublish e lui subscribe penso
 far partire docker-basicrobot-facede24
 connettersi a localhost:8085
 in futuro non sarà localhost ma il robot fisico
-stiamo cominicando con un server web con una webSocket (l'alternativa è HTTP): FACADE.		per iniziare pero abbiamo fatto una request HTTP (GET) solo per farci dare la pagina localhost:8085
+stiamo cominicando con un server web con una webSocket (l'alternativa è HTTP): FACADE.	
+per iniziare pero abbiamo fatto una request HTTP (GET) solo per farci dare la pagina localhost:8085
 
 commentare di basicrobot dentromqtt file qak: connect broker, subscribe, publish
 

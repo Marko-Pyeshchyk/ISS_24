@@ -35,8 +35,9 @@ QActor waste_storage  context ctxwis {
 
 QActor scale_device  context ctxwis {    
 	[# 
-		var Last=0 
-		var New=50 
+		var Last = 0
+		var New = 50
+		val THRESHOLD = 5
 		#
 	]
 	
@@ -46,12 +47,13 @@ QActor scale_device  context ctxwis {
 	
 	State work {
 		delay 3000
-		if [# Last != New #] {
+		[# var diff =  kotlin.math.abs(Last - New) #]
+		if [# diff > THRESHOLD #] {
 			[# Last = New #] 
 			emitlocalstream scale_data : scale_data($New) 
 		}
 	} Goto work
-}
+}	
 
 // incinerator
 QActor incinerator  context ctxwis {    

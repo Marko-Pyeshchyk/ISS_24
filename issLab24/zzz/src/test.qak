@@ -1,0 +1,172 @@
+System test
+
+Dispatch pause : pause(X)
+Dispatch data : data(X)
+Event distance : distance(X)
+
+Event sonardata : distance(D) 
+
+Context ctxass ip [host="localhost" port=8047]
+ 
+QActor wis context ctxass {
+	State s0 initial{
+		println("$name	START") color green
+		delay 1000
+		//observeResource sonar msgid data
+	} 
+	Goto ready
+	
+	State ready {
+		println("$name	READY") color green
+	} Transition t0 whenMsg data -> new_data
+	
+	State new_data {
+		//printCurrentMessage
+		onMsg(data:data(X)){
+			[# var Data = payloadArg(0) #]
+		println("$name	ricevuto: $Data") color green
+		}
+	} 
+	Transition t0
+		whenMsg data -> new_data
+		whenInterrupt pause -> pauseWIS
+		
+	State pauseWIS {
+		println("$name	pausa di 5 secondi") color green
+ 		delay 5000			
+		returnFromInterrupt
+	}
+}
+
+
+QActor sonar context ctxass {
+	[# var N=69 
+		var C = "caccona"#
+	]
+	State s0 initial{
+		println("$name	START") color red
+		delay 1000
+		subscribeTo sonardevice for distance
+	}
+	Transition t0 whenEvent distance -> send_data
+	
+	State send_data {
+		onMsg(distance:distance(X)){
+			[# var D = payloadArg(0) #]
+			forward wis -m data:data($D)
+		}
+		
+		// updateResource [# N.toString() #]
+	}
+	Transition t0 whenEvent distance -> send_data
+}
+
+
+
+QActor pauser context ctxass {
+	State s0 initial{
+		println("$name	START") color yellow
+		delay 4000
+		forward wis -m pause:pause(X)
+	}
+}
+
+ 
+QActor sonardevice context ctxass {
+	[# 
+		lateinit var process : Process
+		lateinit var out : java.io.BufferedReader
+		var Distance = 0
+	#]
+	State s0 initial {
+		println("$name	START") color cyan
+		[# 
+			process = Runtime.getRuntime().exec("python sonar.py")
+			out = process.getInputStream().bufferedReader()
+		#]
+	}
+	Goto readOut
+	
+	State readOut {
+		[# 
+			var Distance =  out.readLine()	
+		#]
+		println("data = $Distance") color blue
+		emitlocalstream distance: distance($Distance)
+	}
+	Goto readOut
+}
+
+/*
+QActor sonardevice context ctxass{
+[# 
+	lateinit var reader : java.io.BufferedReader
+    lateinit var p : Process	
+    var Distance = 0
+#]	
+	State s0 initial{
+		println("$name | sonarstart") 
+		delay 1000
+		
+	 	[#
+			p       = Runtime.getRuntime().exec("python C:/Users/Marko/Desktop/ISS_24/issLab24/zzz/src/sonar.py")
+			reader  = java.io.BufferedReader(  java.io.InputStreamReader(p.getInputStream() ))	
+		#]
+	}
+	Goto readSonarData
+	
+	State readSonarData{
+		
+	[# 
+		var data = reader.readLine()#]
+		println("$name | sonarstart")  color red [#
+		CommUtils.outyellow("$name with python: data = $data"   ) 
+		if( data != null ){
+		try{ 
+			val vd = data.toFloat()
+			val v  = vd.toInt()
+			if( v <= 100 ){	//A first filter ...
+				Distance = v				
+			}else Distance = 0
+		}catch(e: Exception){
+				CommUtils.outred("$name readSonarDataERROR: $e "   )
+		}
+		}//if
+		
+	#]	
+	println("$name | sonarstart")  color red
+		if [# Distance > 0 #] { 
+		    println("$name with python: data = $data"   ) color yellow
+			emitlocalstream sonardata : distance($Distance)			 
+		}
+		println("ahhhhhhhhhhhhhhhhhhhhhhh") color blue
+		//autodispatch doread : doread(1)
+	}
+	Goto readSonarData
+
+
+}//sonardevice
+
+
+QActor datacleaner context ctxass {
+	[# var D = 0; #]
+	State s0 initial {
+		delay 2000
+		subscribeTo sonardevice for sonardata		
+		println("$name subscribed to sonardevice") color blue
+	}
+	Transition t0 whenEvent sonardata -> filter
+	
+	State filter {
+		 println("$name D=$D") color black	
+		onMsg(sonardata : distance(D)) {
+	      	[#  D = payloadArg(0).toInt() #]	      	
+	      	println("$name D=$D") color black	
+	      	if [# D < 12 #] {
+	      		println("$name emit obstacle") color magenta
+	     	}
+     	}
+	}	
+	Transition t0 whenEvent sonardata -> filter
+}
+  */
